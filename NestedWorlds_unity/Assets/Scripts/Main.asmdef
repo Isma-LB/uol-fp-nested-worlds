@@ -1,6 +1,6 @@
 {
     "name": "Main",
-    "rootNamespace": "",
+    "rootNamespace": "IsmaLB",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
