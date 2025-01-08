@@ -1,7 +1,9 @@
 {
     "name": "Main",
     "rootNamespace": "IsmaLB",
-    "references": [],
+    "references": [
+        "Unity.InputSystem"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
