@@ -19,7 +19,7 @@ namespace IsmaLB
         {
             attractor.Attract(rb);
             if (autoAlignRotation)
-                rb.rotation = attractor.Align(rb, alignRotationSpeed);
+                rb.MoveRotation(attractor.Align(rb, alignRotationSpeed));
         }
         void OnValidate()
         {
@@ -28,7 +28,7 @@ namespace IsmaLB
                 if (autoAlignRotation)
                 {
 
-                    rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+                    rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
                 }
                 else
                 {

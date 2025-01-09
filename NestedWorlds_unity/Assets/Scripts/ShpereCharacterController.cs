@@ -30,7 +30,7 @@ namespace IsmaLB
         public void Move(float forwardMovement, float rotationAmount, bool jump)
         {
             // position
-            Vector3 deltaPosition = GetProjectedForward() * forwardMovement * Time.fixedDeltaTime * moveSpeed;
+            Vector3 deltaPosition = forwardMovement * Time.fixedDeltaTime * moveSpeed * GetProjectedForward();
             rb.MovePosition(deltaPosition + rb.position);
             // rotation
             Quaternion deltaRotation = Quaternion.AngleAxis(rotationAmount * Time.fixedDeltaTime * rotationSpeed, transform.up);
