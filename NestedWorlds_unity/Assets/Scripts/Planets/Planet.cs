@@ -6,12 +6,15 @@ namespace IsmaLB.Planets
     public class Planet : MonoBehaviour
     {
         public GravityAttractor Attractor { get; private set; }
-
+        public int SceneIndex { get => gameObject.scene.buildIndex; }
         void Awake()
         {
             Attractor = GetComponent<GravityAttractor>();
-            if (PlanetManager.PlanetsList)
-                PlanetManager.PlanetsList.OnPlanetLoaded(this);
+            PlanetsListSO.OnPlanetLoaded(this);
+        }
+        void OnDestroy()
+        {
+            PlanetsListSO.OnPlanetUnloaded(this);
         }
     }
 }

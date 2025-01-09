@@ -8,12 +8,7 @@ namespace IsmaLB.Planets
     {
         [SerializeField] GravityBody player;
         [SerializeField] PlanetsListSO planetsList;
-        public static PlanetsListSO PlanetsList { get; private set; } = null;
 
-        void Awake()
-        {
-            PlanetsList = planetsList;
-        }
         void Start()
         {
             if (planetsList == null)

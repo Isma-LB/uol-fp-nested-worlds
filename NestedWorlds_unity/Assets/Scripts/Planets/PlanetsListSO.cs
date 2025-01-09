@@ -12,8 +12,9 @@ namespace IsmaLB.Planets
         [SerializeField] int startPlanet = 0;
         [SerializeField] List<SceneReference> planetScenes;
 
-        public Planet CurrentPlanet { get; private set; }
-
+        static Dictionary<int, Planet> loadedPlanets = new();
+        public Planet CurrentPlanet { get => GetLoadedPlanet(currentPlanetIndex); }
+        int currentPlanetIndex = 0;
         void OnValidate()
         {
             if (planetScenes.Count > 0)
@@ -25,8 +26,18 @@ namespace IsmaLB.Planets
                 startPlanet = 0;
             }
         }
+
+        public static void OnPlanetLoaded(Planet planet)
+        {
+            loadedPlanets[planet.SceneIndex] = planet;
+        }
+        public static void OnPlanetUnloaded(Planet planet)
+        {
+            loadedPlanets.Remove(planet.SceneIndex);
+        }
         internal void LoadCurrentPlanet()
         {
+            currentPlanetIndex = startPlanet;
             LoadPlanet(startPlanet);
         }
 
@@ -35,10 +46,19 @@ namespace IsmaLB.Planets
             Debug.Log("Loading planet scene: " + planetScenes[planetIndex].Name);
             SceneManager.LoadSceneAsync(planetScenes[planetIndex].BuildIndex, LoadSceneMode.Additive);
         }
-
-        internal void OnPlanetLoaded(Planet planet)
+        Planet GetLoadedPlanet(int planetIndex)
         {
-            CurrentPlanet = planet;
+            if (IsValidPlanetIndex(planetIndex) == false) return null;
+
+            if (loadedPlanets.ContainsKey(planetScenes[planetIndex].BuildIndex))
+            {
+                return loadedPlanets[planetScenes[planetIndex].BuildIndex];
+            }
+            return null;
+        }
+        bool IsValidPlanetIndex(int planetIndex)
+        {
+            return 0 <= planetIndex && planetIndex < planetScenes.Count;
         }
     }
 }
