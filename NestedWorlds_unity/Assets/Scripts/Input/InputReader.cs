@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-namespace IsmaLB
+namespace IsmaLB.Input
 {
     [CreateAssetMenu(fileName = "Input", menuName = "Scriptable Objects/InputReader")]
     public class InputReader : ScriptableObject, GameInputActions.IPlayerActions
@@ -57,10 +57,6 @@ namespace IsmaLB
             }
         }
 
-        public void OnLook(InputAction.CallbackContext context)
-        {
-        }
-
         public void OnMove(InputAction.CallbackContext context)
         {
             moveEvent?.Invoke(context.ReadValue<Vector2>());
@@ -68,10 +64,18 @@ namespace IsmaLB
 
         public void OnNext(InputAction.CallbackContext context)
         {
+            if (context.phase == InputActionPhase.Performed)
+            {
+                nextEvent?.Invoke();
+            }
         }
 
         public void OnPrevious(InputAction.CallbackContext context)
         {
+            if (context.phase == InputActionPhase.Performed)
+            {
+                previousEvent?.Invoke();
+            }
         }
         #endregion
     }

@@ -2,6 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+using IsmaLB.Input;
+
 namespace IsmaLB
 {
     [RequireComponent(typeof(SphereCharacterController))]
@@ -33,11 +36,7 @@ namespace IsmaLB
             jump = false;
         }
 
-        #region Events
-
         private void OnJump() => jump = true;
         private void OnMove(Vector2 value) => input = value;
-
-        #endregion
     }
 }
