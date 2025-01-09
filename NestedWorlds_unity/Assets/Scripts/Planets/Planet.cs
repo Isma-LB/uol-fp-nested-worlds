@@ -10,6 +10,8 @@ namespace IsmaLB.Planets
         void Awake()
         {
             Attractor = GetComponent<GravityAttractor>();
+            if (PlanetManager.PlanetsList)
+                PlanetManager.PlanetsList.OnPlanetLoaded(this);
         }
     }
 }

@@ -17,6 +17,7 @@ namespace IsmaLB
         }
         void FixedUpdate()
         {
+            if (attractor == null) return;
             attractor.Attract(rb);
             if (autoAlignRotation)
                 rb.MoveRotation(attractor.Align(rb, alignRotationSpeed));
