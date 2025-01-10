@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eca975b439f22684a3f5f52814933bf, type: 3}
   m_Name: PlanetsListSO
   m_EditorClassIdentifier: 
-  startPlanet: 2
+  startPlanet: 1
   planetScenes:
   - asset: {fileID: 102900000, guid: 09e6ab8d3a1f77d62bdb2a3fc9b6079d, type: 3}
     guid: 09e6ab8d3a1f77d62bdb2a3fc9b6079d

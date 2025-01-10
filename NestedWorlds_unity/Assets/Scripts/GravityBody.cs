@@ -11,6 +11,8 @@ namespace IsmaLB
         public GravityAttractor attractor;
         Rigidbody rb;
 
+        public Rigidbody Rigidbody { get => rb; }
+
         void Awake()
         {
             rb = GetComponent<Rigidbody>();

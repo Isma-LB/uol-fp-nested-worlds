@@ -3,6 +3,7 @@ using Eflatun.SceneReference;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using System;
+using System.Collections;
 
 
 namespace IsmaLB.Planets
@@ -64,9 +65,10 @@ namespace IsmaLB.Planets
             loadedPlanets.Remove(planet.SceneIndex);
             CheckLoadedPlanets?.Invoke();
         }
-        internal void LoadCurrentPlanet()
+        internal IEnumerator LoadCurrentPlanet()
         {
             ChangeCurrentPlanet(startPlanet);
+            yield return new WaitUntil(() => CurrentPlanet != null);
         }
         public void ChangeCurrentPlanet(int planetIndex)
         {
@@ -85,7 +87,6 @@ namespace IsmaLB.Planets
         {
             if (IsValidPlanetIndex(planetIndex) && !IsPlanetLoaded(planetIndex))
             {
-                Debug.Log("Loading planet scene: " + planetScenes[planetIndex].Name);
                 SceneManager.LoadSceneAsync(planetScenes[planetIndex].BuildIndex, LoadSceneMode.Additive);
             }
         }
@@ -93,7 +94,6 @@ namespace IsmaLB.Planets
         {
             if (IsValidPlanetIndex(planetIndex) && IsPlanetLoaded(planetIndex))
             {
-                Debug.Log("Unloading planet scene: " + planetScenes[planetIndex].Name);
                 SceneManager.UnloadSceneAsync(planetScenes[planetIndex].BuildIndex);
             }
         }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace IsmaLB.Planets
@@ -46,6 +47,26 @@ namespace IsmaLB.Planets
         {
             setup = true;
             gameObject.SetActive(true);
+        }
+        public IEnumerator TransitionTransform(float deltaScale, AnimationCurve speed)
+        {
+            Vector3 initialScale = transform.localScale;
+            Vector3 targetScale = transform.localScale * deltaScale;
+
+            Vector3 initialPosition = transform.position;
+            Vector3 targetPosition = transform.position * deltaScale;
+
+            float t = 0;
+            yield return new WaitForFixedUpdate();
+            while (t < 1)
+            {
+                t += Time.fixedDeltaTime * speed.Evaluate(t);
+                transform.localScale = Vector3.Lerp(initialScale, targetScale, t);
+                transform.position = Vector3.Lerp(initialPosition, targetPosition, t);
+                yield return new WaitForFixedUpdate();
+            }
+            transform.localScale = targetScale;
+            transform.position = targetPosition;
         }
     }
 }
