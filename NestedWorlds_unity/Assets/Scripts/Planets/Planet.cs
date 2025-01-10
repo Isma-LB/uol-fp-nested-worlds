@@ -7,18 +7,19 @@ namespace IsmaLB.Planets
     [RequireComponent(typeof(GravityAttractor))]
     public class Planet : MonoBehaviour
     {
-        [SerializeField] Transform nextPlanetPlaceholder = null;
+        [SerializeField] PlanetPlaceholder nextPlanetPlaceholder = null;
         [SerializeField, Min(1)] float scaleDelta = 20;
         public enum Transition { forward, current, backwards };
         public GravityAttractor Attractor { get; private set; }
         public int SceneIndex { get => gameObject.scene.buildIndex; }
+        public bool CanTransitionForward { get => nextPlanetPlaceholder.IsPlayerInRange; }
         Vector3 placeHolderOffset;
         bool setup = false;
         void Awake()
         {
             Attractor = GetComponent<GravityAttractor>();
             gameObject.SetActive(false);
-            placeHolderOffset = transform.TransformDirection(nextPlanetPlaceholder.localPosition);
+            placeHolderOffset = transform.TransformDirection(nextPlanetPlaceholder.transform.localPosition);
             PlanetsListSO.OnPlanetLoaded(this);
         }
         void OnDestroy()

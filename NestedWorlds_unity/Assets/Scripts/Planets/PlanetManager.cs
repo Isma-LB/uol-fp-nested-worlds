@@ -48,6 +48,12 @@ namespace IsmaLB.Planets
             int targetPlanetIndex = planetsList.CurrentIndex;
             targetPlanetIndex += dir == Direction.forwards ? 1 : -1;
 
+            if (
+                dir == Direction.forwards
+                && planetsList.CurrentPlanet
+                && planetsList.CurrentPlanet.CanTransitionForward == false
+            ) return;
+
             if (planetsList.IsValidPlanetIndex(targetPlanetIndex))
             {
                 transitionInProcess = true;
