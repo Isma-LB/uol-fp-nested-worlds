@@ -2,6 +2,7 @@ using UnityEngine;
 using Eflatun.SceneReference;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using System;
 
 
 namespace IsmaLB.Planets
@@ -13,8 +14,13 @@ namespace IsmaLB.Planets
         [SerializeField] List<SceneReference> planetScenes;
 
         static Dictionary<int, Planet> loadedPlanets = new();
-        public Planet CurrentPlanet { get => GetLoadedPlanet(currentPlanetIndex); }
+        static event Action CheckLoadedPlanets;
+        public Planet PreviousPlanet { get; private set; }
+        public Planet CurrentPlanet { get; private set; }
+        public Planet NextPlanet { get; private set; }
         int currentPlanetIndex = 0;
+        public int CurrentIndex { get => currentPlanetIndex; }
+
         void OnValidate()
         {
             if (planetScenes.Count > 0)
@@ -26,39 +32,86 @@ namespace IsmaLB.Planets
                 startPlanet = 0;
             }
         }
+        void OnEnable() => CheckLoadedPlanets += UpdateLoadedPlanets;
+        void OnDisable() => CheckLoadedPlanets -= UpdateLoadedPlanets;
+
+        private void UpdateLoadedPlanets()
+        {
+            PreviousPlanet = GetLoadedPlanet(currentPlanetIndex - 1);
+            CurrentPlanet = GetLoadedPlanet(currentPlanetIndex);
+            NextPlanet = GetLoadedPlanet(currentPlanetIndex + 1);
+            if (CurrentPlanet != null)
+            {
+                CurrentPlanet.SetupAsCurrent();
+            }
+            if (CurrentPlanet != null && PreviousPlanet != null)
+            {
+                PreviousPlanet.SetupRelativeTo(CurrentPlanet, Planet.Transition.backwards);
+            }
+            if (CurrentPlanet != null && NextPlanet != null)
+            {
+                NextPlanet.SetupRelativeTo(CurrentPlanet, Planet.Transition.forward);
+            }
+        }
 
         public static void OnPlanetLoaded(Planet planet)
         {
-            loadedPlanets[planet.SceneIndex] = planet;
+            loadedPlanets.Add(planet.SceneIndex, planet);
+            CheckLoadedPlanets?.Invoke();
         }
         public static void OnPlanetUnloaded(Planet planet)
         {
             loadedPlanets.Remove(planet.SceneIndex);
+            CheckLoadedPlanets?.Invoke();
         }
         internal void LoadCurrentPlanet()
         {
-            currentPlanetIndex = startPlanet;
-            LoadPlanet(startPlanet);
+            ChangeCurrentPlanet(startPlanet);
         }
-
-        void LoadPlanet(int planetIndex)
+        public void ChangeCurrentPlanet(int planetIndex)
         {
-            Debug.Log("Loading planet scene: " + planetScenes[planetIndex].Name);
-            SceneManager.LoadSceneAsync(planetScenes[planetIndex].BuildIndex, LoadSceneMode.Additive);
+            if (IsValidPlanetIndex(planetIndex) == false)
+            {
+                throw new ArgumentOutOfRangeException("Planet index is out of range");
+            }
+            currentPlanetIndex = planetIndex;
+            UnloadPlanetScene(planetIndex - 2);
+            LoadPlanetScene(planetIndex - 1);
+            LoadPlanetScene(planetIndex);
+            LoadPlanetScene(planetIndex + 1);
+            UnloadPlanetScene(planetIndex + 2);
+        }
+        void LoadPlanetScene(int planetIndex)
+        {
+            if (IsValidPlanetIndex(planetIndex) && !IsPlanetLoaded(planetIndex))
+            {
+                Debug.Log("Loading planet scene: " + planetScenes[planetIndex].Name);
+                SceneManager.LoadSceneAsync(planetScenes[planetIndex].BuildIndex, LoadSceneMode.Additive);
+            }
+        }
+        void UnloadPlanetScene(int planetIndex)
+        {
+            if (IsValidPlanetIndex(planetIndex) && IsPlanetLoaded(planetIndex))
+            {
+                Debug.Log("Unloading planet scene: " + planetScenes[planetIndex].Name);
+                SceneManager.UnloadSceneAsync(planetScenes[planetIndex].BuildIndex);
+            }
         }
         Planet GetLoadedPlanet(int planetIndex)
         {
-            if (IsValidPlanetIndex(planetIndex) == false) return null;
-
-            if (loadedPlanets.ContainsKey(planetScenes[planetIndex].BuildIndex))
+            if (IsPlanetLoaded(planetIndex))
             {
                 return loadedPlanets[planetScenes[planetIndex].BuildIndex];
             }
             return null;
         }
-        bool IsValidPlanetIndex(int planetIndex)
+        public bool IsValidPlanetIndex(int planetIndex)
         {
             return 0 <= planetIndex && planetIndex < planetScenes.Count;
+        }
+        bool IsPlanetLoaded(int planetIndex)
+        {
+            return IsValidPlanetIndex(planetIndex) && loadedPlanets.ContainsKey(planetScenes[planetIndex].BuildIndex);
         }
     }
 }

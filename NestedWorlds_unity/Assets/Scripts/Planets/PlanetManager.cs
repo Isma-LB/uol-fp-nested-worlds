@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using IsmaLB.Input;
 
 namespace IsmaLB.Planets
 {
@@ -8,6 +9,39 @@ namespace IsmaLB.Planets
     {
         [SerializeField] GravityBody player;
         [SerializeField] PlanetsListSO planetsList;
+        [SerializeField] InputReader input;
+
+        void OnEnable()
+        {
+            input.nextEvent += OnChangeNextPlanet;
+            input.previousEvent += OnChangePreviousPlanet;
+        }
+        void OnDisable()
+        {
+            input.nextEvent -= OnChangeNextPlanet;
+            input.previousEvent -= OnChangePreviousPlanet;
+        }
+
+        // input events
+        private void OnChangeNextPlanet()
+        {
+            Debug.Log("Visit next planet");
+            MakeTransition(planetsList.CurrentIndex + 1);
+        }
+
+        private void MakeTransition(int targetPlantIndex)
+        {
+            if (planetsList.IsValidPlanetIndex(targetPlantIndex))
+            {
+                planetsList.ChangeCurrentPlanet(targetPlantIndex);
+            }
+        }
+
+        private void OnChangePreviousPlanet()
+        {
+            Debug.Log("Visit previous planet");
+            MakeTransition(planetsList.CurrentIndex - 1);
+        }
 
         void Start()
         {

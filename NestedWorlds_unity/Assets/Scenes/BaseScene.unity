@@ -408,6 +408,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 681985333}
   planetsList: {fileID: 11400000, guid: 39eb9edbba2f9aad186c61dd035d0373, type: 2}
+  input: {fileID: 11400000, guid: 2b22ddac83cc37e27a17d6c040b4f307, type: 2}
 --- !u!4 &657216464
 Transform:
   m_ObjectHideFlags: 0
