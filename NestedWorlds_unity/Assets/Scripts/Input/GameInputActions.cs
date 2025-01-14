@@ -310,6 +310,140 @@ namespace IsmaLB.Input
             ]
         },
         {
+            ""name"": ""Puzzle"",
+            ""id"": ""8435e8b0-f727-4af8-a505-8dc76a923632"",
+            ""actions"": [
+                {
+                    ""name"": ""Grab"",
+                    ""type"": ""Button"",
+                    ""id"": ""7fa316b6-9648-46d1-8a9b-ea38feb9be1f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Point"",
+                    ""type"": ""Value"",
+                    ""id"": ""57a26293-46f0-4f2f-9082-7b277036862b"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Quit"",
+                    ""type"": ""Button"",
+                    ""id"": ""0a362ed5-6a7a-407c-99d7-fa17fcf1a7d3"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""8e2ea2eb-2055-4425-95a1-9f4ad65c5041"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Grab"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8780e670-5eaf-49f0-be1d-dfbf0bd2178c"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Grab"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b485ef6c-2cd5-4d6e-9e71-229f8c611f06"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Point"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""114718f2-899d-4a35-b0b7-4f96e9c985ba"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Point"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Up"",
+                    ""id"": ""105227c5-318f-4d5c-b4d2-7aefdf4a2758"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Point"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Down"",
+                    ""id"": ""f368e531-2d65-4350-a15a-2b87709c85c3"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Point"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Left"",
+                    ""id"": ""88d25346-4870-4565-a9d9-ec8b661732e7"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Point"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Right"",
+                    ""id"": ""13384460-1e64-4450-b6d8-a0c7f9d32a6f"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Point"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""89540582-f6d4-423c-b589-689b13aab105"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Quit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
             ""name"": ""UI"",
             ""id"": ""272f6d14-89ba-496f-b7ff-215263d3219f"",
             ""actions"": [
@@ -326,7 +460,7 @@ namespace IsmaLB.Input
                     ""name"": ""Submit"",
                     ""type"": ""Button"",
                     ""id"": ""7607c7b6-cd76-4816-beef-bd0341cfe950"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -335,7 +469,7 @@ namespace IsmaLB.Input
                     ""name"": ""Cancel"",
                     ""type"": ""Button"",
                     ""id"": ""15cef263-9014-4fd5-94d9-4e4a6234a6ef"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -896,6 +1030,11 @@ namespace IsmaLB.Input
             m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
             m_Player_Previous = m_Player.FindAction("Previous", throwIfNotFound: true);
             m_Player_Next = m_Player.FindAction("Next", throwIfNotFound: true);
+            // Puzzle
+            m_Puzzle = asset.FindActionMap("Puzzle", throwIfNotFound: true);
+            m_Puzzle_Grab = m_Puzzle.FindAction("Grab", throwIfNotFound: true);
+            m_Puzzle_Point = m_Puzzle.FindAction("Point", throwIfNotFound: true);
+            m_Puzzle_Quit = m_Puzzle.FindAction("Quit", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -913,6 +1052,7 @@ namespace IsmaLB.Input
         ~@GameInputActions()
         {
             UnityEngine.Debug.Assert(!m_Player.enabled, "This will cause a leak and performance issues, GameInputActions.Player.Disable() has not been called.");
+            UnityEngine.Debug.Assert(!m_Puzzle.enabled, "This will cause a leak and performance issues, GameInputActions.Puzzle.Disable() has not been called.");
             UnityEngine.Debug.Assert(!m_UI.enabled, "This will cause a leak and performance issues, GameInputActions.UI.Disable() has not been called.");
         }
 
@@ -1049,6 +1189,68 @@ namespace IsmaLB.Input
             }
         }
         public PlayerActions @Player => new PlayerActions(this);
+
+        // Puzzle
+        private readonly InputActionMap m_Puzzle;
+        private List<IPuzzleActions> m_PuzzleActionsCallbackInterfaces = new List<IPuzzleActions>();
+        private readonly InputAction m_Puzzle_Grab;
+        private readonly InputAction m_Puzzle_Point;
+        private readonly InputAction m_Puzzle_Quit;
+        public struct PuzzleActions
+        {
+            private @GameInputActions m_Wrapper;
+            public PuzzleActions(@GameInputActions wrapper) { m_Wrapper = wrapper; }
+            public InputAction @Grab => m_Wrapper.m_Puzzle_Grab;
+            public InputAction @Point => m_Wrapper.m_Puzzle_Point;
+            public InputAction @Quit => m_Wrapper.m_Puzzle_Quit;
+            public InputActionMap Get() { return m_Wrapper.m_Puzzle; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(PuzzleActions set) { return set.Get(); }
+            public void AddCallbacks(IPuzzleActions instance)
+            {
+                if (instance == null || m_Wrapper.m_PuzzleActionsCallbackInterfaces.Contains(instance)) return;
+                m_Wrapper.m_PuzzleActionsCallbackInterfaces.Add(instance);
+                @Grab.started += instance.OnGrab;
+                @Grab.performed += instance.OnGrab;
+                @Grab.canceled += instance.OnGrab;
+                @Point.started += instance.OnPoint;
+                @Point.performed += instance.OnPoint;
+                @Point.canceled += instance.OnPoint;
+                @Quit.started += instance.OnQuit;
+                @Quit.performed += instance.OnQuit;
+                @Quit.canceled += instance.OnQuit;
+            }
+
+            private void UnregisterCallbacks(IPuzzleActions instance)
+            {
+                @Grab.started -= instance.OnGrab;
+                @Grab.performed -= instance.OnGrab;
+                @Grab.canceled -= instance.OnGrab;
+                @Point.started -= instance.OnPoint;
+                @Point.performed -= instance.OnPoint;
+                @Point.canceled -= instance.OnPoint;
+                @Quit.started -= instance.OnQuit;
+                @Quit.performed -= instance.OnQuit;
+                @Quit.canceled -= instance.OnQuit;
+            }
+
+            public void RemoveCallbacks(IPuzzleActions instance)
+            {
+                if (m_Wrapper.m_PuzzleActionsCallbackInterfaces.Remove(instance))
+                    UnregisterCallbacks(instance);
+            }
+
+            public void SetCallbacks(IPuzzleActions instance)
+            {
+                foreach (var item in m_Wrapper.m_PuzzleActionsCallbackInterfaces)
+                    UnregisterCallbacks(item);
+                m_Wrapper.m_PuzzleActionsCallbackInterfaces.Clear();
+                AddCallbacks(instance);
+            }
+        }
+        public PuzzleActions @Puzzle => new PuzzleActions(this);
 
         // UI
         private readonly InputActionMap m_UI;
@@ -1219,6 +1421,12 @@ namespace IsmaLB.Input
             void OnJump(InputAction.CallbackContext context);
             void OnPrevious(InputAction.CallbackContext context);
             void OnNext(InputAction.CallbackContext context);
+        }
+        public interface IPuzzleActions
+        {
+            void OnGrab(InputAction.CallbackContext context);
+            void OnPoint(InputAction.CallbackContext context);
+            void OnQuit(InputAction.CallbackContext context);
         }
         public interface IUIActions
         {

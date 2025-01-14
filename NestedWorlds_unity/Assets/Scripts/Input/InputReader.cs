@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 namespace IsmaLB.Input
 {
     [CreateAssetMenu(fileName = "Input", menuName = "Scriptable Objects/InputReader")]
-    public class InputReader : ScriptableObject, GameInputActions.IPlayerActions
+    public class InputReader : ScriptableObject, GameInputActions.IPlayerActions, GameInputActions.IPuzzleActions
     {
         // Player actions
         public UnityAction interactEvent;
@@ -15,6 +15,11 @@ namespace IsmaLB.Input
         public UnityAction previousEvent;
         public UnityAction nextEvent;
 
+        // Puzzle actions
+
+        public UnityAction<Vector2> pointerPositionEvent;
+        public UnityAction grabPressedEvent;
+        public UnityAction grabReleasedEvent;
         GameInputActions gameInput;
         void OnEnable()
         {
@@ -22,7 +27,10 @@ namespace IsmaLB.Input
             {
                 gameInput = new GameInputActions();
                 gameInput.Player.SetCallbacks(this);
+                gameInput.Puzzle.SetCallbacks(this);
                 EnablePlayerInput();
+                // test
+                gameInput.Puzzle.Enable();
             }
         }
         void OnDisable()
@@ -32,6 +40,7 @@ namespace IsmaLB.Input
         public void DisableAllInput()
         {
             gameInput.Player.Disable();
+            gameInput.Puzzle.Disable();
             gameInput.UI.Disable();
         }
         public void EnablePlayerInput()
@@ -76,6 +85,28 @@ namespace IsmaLB.Input
             {
                 previousEvent?.Invoke();
             }
+        }
+
+        public void OnGrab(InputAction.CallbackContext context)
+        {
+            if (context.phase == InputActionPhase.Performed)
+            {
+                grabPressedEvent?.Invoke();
+            }
+            if (context.phase == InputActionPhase.Canceled)
+            {
+                grabReleasedEvent?.Invoke();
+            }
+        }
+
+        public void OnPoint(InputAction.CallbackContext context)
+        {
+            pointerPositionEvent?.Invoke(context.ReadValue<Vector2>());
+        }
+
+        public void OnQuit(InputAction.CallbackContext context)
+        {
+            // throw new System.NotImplementedException();
         }
         #endregion
     }

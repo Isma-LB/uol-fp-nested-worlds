@@ -11,7 +11,7 @@ public class EditModeTest
     {
         int test = 0;
         test++;
-        Assert.Equals(test, 0);
+        Assert.AreEqual(test, 1);
         // Use the Assert class to test conditions
     }
 }
