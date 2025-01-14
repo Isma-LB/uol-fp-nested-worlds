@@ -1,7 +1,10 @@
 {
     "name": "Main",
-    "rootNamespace": "",
-    "references": [],
+    "rootNamespace": "IsmaLB",
+    "references": [
+        "Unity.InputSystem",
+        "Eflatun.SceneReference"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
