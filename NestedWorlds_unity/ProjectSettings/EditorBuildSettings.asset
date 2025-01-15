@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LavaPlanetScene.unity
     guid: 26e9f02519a1833008cb47266ec18a46
+  - enabled: 1
+    path: Assets/Scenes/Puzzles/PhysicsScene_PR2.unity
+    guid: 6257ca539cf5e98e9a746454b0d6341b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
