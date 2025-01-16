@@ -43,7 +43,7 @@ namespace IsmaLB.Planets
 
         private void MakeTransition(Direction dir)
         {
-            if (transitionInProcess) return;
+            if (transitionInProcess || planetsList == null) return;
 
             int targetPlanetIndex = planetsList.CurrentIndex;
             targetPlanetIndex += dir == Direction.forwards ? 1 : -1;
@@ -76,10 +76,11 @@ namespace IsmaLB.Planets
         {
             if (planetsList == null)
             {
-                Planet currentPlanet = FindAnyObjectByType<Planet>();
+                Planet currentPlanet = FindAnyObjectByType<Planet>(FindObjectsInactive.Include);
                 if (currentPlanet != null)
                 {
                     player.attractor = currentPlanet.Attractor;
+                    currentPlanet.SetupAsCurrent();
                 }
                 else
                 {
