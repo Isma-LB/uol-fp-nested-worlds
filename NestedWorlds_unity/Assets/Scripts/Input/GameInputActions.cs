@@ -339,6 +339,15 @@ namespace IsmaLB.Input
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Restart"",
+                    ""type"": ""Button"",
+                    ""id"": ""551837bf-e442-4709-9566-f2e1a6e8e8a9"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -438,6 +447,17 @@ namespace IsmaLB.Input
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Quit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e75d2a3e-047b-4b70-b13c-ae95589a240e"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Restart"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1035,6 +1055,7 @@ namespace IsmaLB.Input
             m_Puzzle_Grab = m_Puzzle.FindAction("Grab", throwIfNotFound: true);
             m_Puzzle_Point = m_Puzzle.FindAction("Point", throwIfNotFound: true);
             m_Puzzle_Quit = m_Puzzle.FindAction("Quit", throwIfNotFound: true);
+            m_Puzzle_Restart = m_Puzzle.FindAction("Restart", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1196,6 +1217,7 @@ namespace IsmaLB.Input
         private readonly InputAction m_Puzzle_Grab;
         private readonly InputAction m_Puzzle_Point;
         private readonly InputAction m_Puzzle_Quit;
+        private readonly InputAction m_Puzzle_Restart;
         public struct PuzzleActions
         {
             private @GameInputActions m_Wrapper;
@@ -1203,6 +1225,7 @@ namespace IsmaLB.Input
             public InputAction @Grab => m_Wrapper.m_Puzzle_Grab;
             public InputAction @Point => m_Wrapper.m_Puzzle_Point;
             public InputAction @Quit => m_Wrapper.m_Puzzle_Quit;
+            public InputAction @Restart => m_Wrapper.m_Puzzle_Restart;
             public InputActionMap Get() { return m_Wrapper.m_Puzzle; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -1221,6 +1244,9 @@ namespace IsmaLB.Input
                 @Quit.started += instance.OnQuit;
                 @Quit.performed += instance.OnQuit;
                 @Quit.canceled += instance.OnQuit;
+                @Restart.started += instance.OnRestart;
+                @Restart.performed += instance.OnRestart;
+                @Restart.canceled += instance.OnRestart;
             }
 
             private void UnregisterCallbacks(IPuzzleActions instance)
@@ -1234,6 +1260,9 @@ namespace IsmaLB.Input
                 @Quit.started -= instance.OnQuit;
                 @Quit.performed -= instance.OnQuit;
                 @Quit.canceled -= instance.OnQuit;
+                @Restart.started -= instance.OnRestart;
+                @Restart.performed -= instance.OnRestart;
+                @Restart.canceled -= instance.OnRestart;
             }
 
             public void RemoveCallbacks(IPuzzleActions instance)
@@ -1427,6 +1456,7 @@ namespace IsmaLB.Input
             void OnGrab(InputAction.CallbackContext context);
             void OnPoint(InputAction.CallbackContext context);
             void OnQuit(InputAction.CallbackContext context);
+            void OnRestart(InputAction.CallbackContext context);
         }
         public interface IUIActions
         {

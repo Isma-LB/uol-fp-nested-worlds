@@ -20,6 +20,9 @@ namespace IsmaLB.Input
         public UnityAction<Vector2> pointerPositionEvent;
         public UnityAction grabPressedEvent;
         public UnityAction grabReleasedEvent;
+        public UnityAction restartEvent;
+        public UnityAction quitEvent;
+        // internal input
         GameInputActions gameInput;
         void OnEnable()
         {
@@ -106,7 +109,18 @@ namespace IsmaLB.Input
 
         public void OnQuit(InputAction.CallbackContext context)
         {
-            // throw new System.NotImplementedException();
+            if (context.phase == InputActionPhase.Performed)
+            {
+                quitEvent?.Invoke();
+            }
+        }
+
+        public void OnRestart(InputAction.CallbackContext context)
+        {
+            if (context.phase == InputActionPhase.Performed)
+            {
+                restartEvent?.Invoke();
+            }
         }
         #endregion
     }

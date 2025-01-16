@@ -1,28 +1,55 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using IsmaLB.Input;
 using UnityEngine;
+using UnityEngine.InputSystem;
 namespace IsmaLB.Puzzles
 {
     public class PuzzleLevelController : MonoBehaviour
     {
+        [SerializeField] InputReader inputReader;
+        [SerializeField] PuzzleEventSO puzzleSolvedEvent;
+        [SerializeField] PuzzleEventSO restartPuzzleEvent;
+        [SerializeField] PuzzleEventSO quitPuzzleEvent;
         ParticlesTarget[] targets;
-        public static event Action OnGameCompleted;
         bool isCompleted = false;
         // Start is called before the first frame update
         void Start()
         {
             targets = FindObjectsByType<ParticlesTarget>(FindObjectsSortMode.None);
         }
+        void OnEnable()
+        {
+            inputReader.restartEvent += OnRestart;
+            inputReader.quitEvent += OnQuit;
+        }
+        void OnDisable()
+        {
+            inputReader.restartEvent -= OnRestart;
+            inputReader.quitEvent -= OnQuit;
+        }
+
+        private void OnQuit()
+        {
+            quitPuzzleEvent.Raise();
+        }
+
+        private void OnRestart()
+        {
+            restartPuzzleEvent.Raise();
+        }
+
+
 
         // Update is called once per frame
         void Update()
         {
             if (GetCompletionScore() >= 1 && isCompleted == false)
             {
-                Debug.Log("Game completed");
+                Debug.Log("Puzzle Completed");
                 isCompleted = true;
-                OnGameCompleted?.Invoke();
+                puzzleSolvedEvent.Raise();
             }
         }
 
