@@ -8,6 +8,7 @@ namespace IsmaLB.Levels
     {
         [SerializeField] InputReader inputReader;
         [SerializeField] LevelSO puzzleLevel;
+        [SerializeField] LevelEventSO loadPuzzleLevelEvent;
         [Header("Visuals")]
         [SerializeField] GameObject particles;
         [SerializeField] GameObject target;
@@ -32,6 +33,7 @@ namespace IsmaLB.Levels
             if (puzzleLevel.State == LevelState.Unlocked)
             {
                 Debug.Log("Loading puzzle level");
+                loadPuzzleLevelEvent.Raise(puzzleLevel);
             }
         }
         private void UpdateVisuals(LevelState state)

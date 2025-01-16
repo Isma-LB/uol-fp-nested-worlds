@@ -1,4 +1,5 @@
 using Eflatun.SceneReference;
+using UnityEditor.SearchService;
 using UnityEngine;
 
 namespace IsmaLB.Levels
@@ -9,5 +10,6 @@ namespace IsmaLB.Levels
         [SerializeField] SceneReference puzzleScene;
         [SerializeField] LevelState state = LevelState.Locked;
         public LevelState State => state;
+        public SceneReference Scene => puzzleScene;
     }
 }

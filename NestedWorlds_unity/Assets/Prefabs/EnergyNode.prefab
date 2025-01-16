@@ -333,7 +333,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTag: Player
   rangeIndicator: {fileID: 680458701135995714}
+  inputReader: {fileID: 11400000, guid: 2b22ddac83cc37e27a17d6c040b4f307, type: 2}
   puzzleLevel: {fileID: 11400000, guid: 3ffd96ad2a31e41b8803e39977295bbe, type: 2}
+  loadPuzzleLevelEvent: {fileID: 11400000, guid: ffbbada26fef3ab7c899404741e7f060, type: 2}
   particles: {fileID: 3926965029579844166}
   target: {fileID: 1656724207820951684}
 --- !u!135 &5956504838251399409
