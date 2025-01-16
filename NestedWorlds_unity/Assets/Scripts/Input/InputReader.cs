@@ -52,7 +52,7 @@ namespace IsmaLB.Input
 
         public void OnInteract(InputAction.CallbackContext context)
         {
-            if (context.phase == InputActionPhase.Performed)
+            if (context.phase == InputActionPhase.Started)
             {
                 interactEvent?.Invoke();
             }
