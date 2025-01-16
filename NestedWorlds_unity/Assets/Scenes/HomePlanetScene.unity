@@ -411,6 +411,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnergyNode
       objectReference: {fileID: 0}
+    - target: {fileID: 1656724207977448118, guid: 01774d4b0e8d04df6ba128548803c6ef, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3966531467660838489, guid: 01774d4b0e8d04df6ba128548803c6ef, type: 3}
       propertyPath: puzzleLevel
       value: 
