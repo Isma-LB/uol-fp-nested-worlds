@@ -9,7 +9,9 @@ namespace IsmaLB.Puzzles.Particles
     {
         List<GameObject> particlesPool = new();
         [SerializeField] int particleMaxCount = 500;
-        [SerializeField] GameObject particlePrefab;
+        [SerializeField] Particle particlePrefab;
+        [SerializeField, Range(1, 5)] float particleInitialVelocity = 2;
+        [SerializeField, Range(1, 10)] float particleDisableDelay = 2;
 
         public static ParticlePool SharedInstance;
 
@@ -19,12 +21,13 @@ namespace IsmaLB.Puzzles.Particles
         }
         void Start()
         {
-            GameObject temp;
+            Particle temp;
             for (int i = 0; i < particleMaxCount; i++)
             {
                 temp = Instantiate(particlePrefab, transform);
-                temp.SetActive(false);
-                particlesPool.Add(temp);
+                temp.Setup(particleDisableDelay, particleInitialVelocity);
+                temp.gameObject.SetActive(false);
+                particlesPool.Add(temp.gameObject);
             }
         }
         public GameObject GetPooledObject()
