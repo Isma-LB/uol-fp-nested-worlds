@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: TestLevel_0_SO
   m_EditorClassIdentifier: 
   puzzleScene:
-    asset: {fileID: 102900000, guid: 6257ca539cf5e98e9a746454b0d6341b, type: 3}
-    guid: 6257ca539cf5e98e9a746454b0d6341b
+    asset: {fileID: 102900000, guid: 72111340a35dde3c0886abf522b0aa49, type: 3}
+    guid: 72111340a35dde3c0886abf522b0aa49
   state: 2

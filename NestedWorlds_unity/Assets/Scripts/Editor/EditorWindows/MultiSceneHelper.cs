@@ -7,7 +7,7 @@ namespace IsmaLB.Editors
     public class MultiSceneHelper : EditorWindow
     {
         private Object baseScene = null;
-        private Object planetScene = null;
+        private Object additiveScene = null;
         private bool autoLoad = true;
 
         [MenuItem("NestedWorlds/MultiSceneHelper")]
@@ -27,14 +27,14 @@ namespace IsmaLB.Editors
             EditorGUI.BeginChangeCheck();
             GUILayout.BeginHorizontal();
             GUILayout.Label("PlanetScene", EditorStyles.label);
-            planetScene = EditorGUILayout.ObjectField(planetScene, typeof(SceneAsset), false);
+            additiveScene = EditorGUILayout.ObjectField(additiveScene, typeof(SceneAsset), false);
             GUILayout.EndHorizontal();
 
-            if (EditorGUI.EndChangeCheck() && autoLoad && baseScene != null && planetScene != null)
+            if (EditorGUI.EndChangeCheck() && autoLoad && baseScene != null && additiveScene != null)
             {
                 LoadMultiSceneSetup();
             }
-            autoLoad = EditorGUILayout.Toggle("Auto Load on planet selection", autoLoad);
+            autoLoad = EditorGUILayout.Toggle("Auto Load on scene selection", autoLoad);
             if (GUILayout.Button("Load Scenes"))
             {
                 LoadMultiSceneSetup();
@@ -45,7 +45,7 @@ namespace IsmaLB.Editors
             if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
             {
                 EditorSceneManager.OpenScene(AssetDatabase.GetAssetPath(baseScene));
-                EditorSceneManager.OpenScene(AssetDatabase.GetAssetPath(planetScene), OpenSceneMode.Additive);
+                EditorSceneManager.OpenScene(AssetDatabase.GetAssetPath(additiveScene), OpenSceneMode.Additive);
             }
         }
     }

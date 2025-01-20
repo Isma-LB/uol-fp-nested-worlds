@@ -6,12 +6,20 @@ namespace IsmaLB.Puzzles.Particles
 {
     public class Particle : MonoBehaviour
     {
-        [SerializeField] float initialVelocity;
-        [SerializeField] float disableDelay = 5;
-
+        float initialVelocity;
+        float disableDelay;
+        Rigidbody2D rb;
+        void Awake()
+        {
+            rb = GetComponent<Rigidbody2D>();
+        }
+        public void Setup(float _disableDelay, float _initialVelocity)
+        {
+            initialVelocity = _initialVelocity;
+            disableDelay = _disableDelay;
+        }
         void OnEnable()
         {
-            Rigidbody2D rb = GetComponent<Rigidbody2D>();
             rb.AddForce(transform.up * initialVelocity, ForceMode2D.Impulse);
             StartCoroutine(AutoDisable());
         }
