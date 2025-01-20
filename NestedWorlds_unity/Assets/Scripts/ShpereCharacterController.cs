@@ -12,6 +12,7 @@ namespace IsmaLB
         [SerializeField]
 
         public bool IsGrounded { get; private set; }
+        public float ForwardSpeed { get; private set; }
         Rigidbody rb;
         CapsuleCollider capsuleCollider;
         RaycastHit groundHit;
@@ -29,8 +30,9 @@ namespace IsmaLB
         }
         public void Move(float forwardMovement, float rotationAmount, bool jump)
         {
+            ForwardSpeed = forwardMovement * moveSpeed;
             // position
-            Vector3 deltaPosition = forwardMovement * Time.fixedDeltaTime * moveSpeed * GetProjectedForward();
+            Vector3 deltaPosition = Time.fixedDeltaTime * ForwardSpeed * GetProjectedForward();
             rb.MovePosition(deltaPosition + rb.position);
             // rotation
             Quaternion deltaRotation = Quaternion.AngleAxis(rotationAmount * Time.fixedDeltaTime * rotationSpeed, transform.up);
