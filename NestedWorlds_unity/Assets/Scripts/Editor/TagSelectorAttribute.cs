@@ -1,13 +1,6 @@
 using UnityEngine;
 using UnityEditor;
 
-/// <summary>
-/// Custom attribute used to make a string variable display a dropdown with the available tags in Unity
-/// </summary>
-public class TagSelectorAttribute : PropertyAttribute
-{
-    public TagSelectorAttribute() { }
-}
 namespace IsmaLB.Editors
 {
     [CustomPropertyDrawer(typeof(TagSelectorAttribute))]
