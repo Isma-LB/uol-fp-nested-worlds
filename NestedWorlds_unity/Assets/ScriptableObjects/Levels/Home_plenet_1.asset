@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Home_plenet_1
   m_EditorClassIdentifier: 
   puzzleScene:
-    asset: {fileID: 0}
-    guid: 00000000000000000000000000000000
-  state: 0
+    asset: {fileID: 102900000, guid: de061c2c555538305b1fd9541a543769, type: 3}
+    guid: de061c2c555538305b1fd9541a543769
+  state: 2

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Ice_planet_1
   m_EditorClassIdentifier: 
   puzzleScene:
-    asset: {fileID: 102900000, guid: db736e17af2334b51a9ba6f7ec677530, type: 3}
-    guid: db736e17af2334b51a9ba6f7ec677530
-  state: 2
+    asset: {fileID: 102900000, guid: 72111340a35dde3c0886abf522b0aa49, type: 3}
+    guid: 72111340a35dde3c0886abf522b0aa49
+  state: 0

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Lava_planet_1
   m_EditorClassIdentifier: 
   puzzleScene:
-    asset: {fileID: 0}
-    guid: 00000000000000000000000000000000
-  state: 0
+    asset: {fileID: 102900000, guid: f4266b33c5d5fc0458fa3a3a1fc6929f, type: 3}
+    guid: f4266b33c5d5fc0458fa3a3a1fc6929f
+  state: 2

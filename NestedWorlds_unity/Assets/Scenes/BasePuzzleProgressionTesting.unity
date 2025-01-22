@@ -281,7 +281,11 @@ MonoBehaviour:
   loadLevelEvent: {fileID: 11400000, guid: ffbbada26fef3ab7c899404741e7f060, type: 2}
   testLevels:
   - {fileID: 11400000, guid: 3ffd96ad2a31e41b8803e39977295bbe, type: 2}
+  - {fileID: 11400000, guid: c0acdc961f9d249809297219a0e92688, type: 2}
+  - {fileID: 11400000, guid: 3e7ddc4c28fd037619c5863d951af91b, type: 2}
   - {fileID: 11400000, guid: 74e6c1641db4e1770aef84e292c7fdec, type: 2}
+  - {fileID: 11400000, guid: 3ef068450fab16f10bef56ccbfd5aba7, type: 2}
+  - {fileID: 11400000, guid: d4c6199ad3f970295959acfceb0ff2d4, type: 2}
   startLevel: 0
 --- !u!1 &1973244592
 GameObject:
