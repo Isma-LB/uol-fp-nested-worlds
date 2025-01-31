@@ -21,14 +21,23 @@ EditorBuildSettings:
     path: Assets/Scenes/SceneTemplates/BasePuzzle.unity
     guid: 6257ca539cf5e98e9a746454b0d6341b
   - enabled: 1
-    path: Assets/Scenes/Puzzles/PhysicsScene_Test.unity
-    guid: 584f9db4503c811e780afbeca38c7d66
-  - enabled: 1
-    path: Assets/Scenes/Puzzles/Test_level_0.unity
+    path: Assets/Scenes/Puzzles/Test_level_2.unity
     guid: 72111340a35dde3c0886abf522b0aa49
   - enabled: 1
     path: Assets/Scenes/Puzzles/Test_level_1.unity
     guid: db736e17af2334b51a9ba6f7ec677530
+  - enabled: 1
+    path: Assets/Scenes/Puzzles/Test_level_3.unity
+    guid: fda91eb44c84a3509b93bbd710c75941
+  - enabled: 1
+    path: Assets/Scenes/Puzzles/Test_level_4.unity
+    guid: 62674e6ddf20838d4b6b6086865308f7
+  - enabled: 1
+    path: Assets/Scenes/Puzzles/Test_level_5.unity
+    guid: de061c2c555538305b1fd9541a543769
+  - enabled: 1
+    path: Assets/Scenes/Puzzles/Test_level_6.unity
+    guid: f4266b33c5d5fc0458fa3a3a1fc6929f
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -13,17 +13,6 @@ namespace IsmaLB.Levels
         [SerializeField] LevelEventSO onLevelCompleted;
         int currentLevel = 0;
 
-        void OnEnable()
-        {
-            Debug.Log("Progress controller enabled");
-            Init();
-            onLevelCompleted.onLevelEvent += HandleLevelCompleted;
-        }
-        void OnDisable()
-        {
-            onLevelCompleted.onLevelEvent -= HandleLevelCompleted;
-        }
-
         private void HandleLevelCompleted(LevelSO level)
         {
             Debug.Log("level completed: " + level.Scene.Name);
@@ -40,10 +29,15 @@ namespace IsmaLB.Levels
             }
         }
 
-        private void Init()
+        public void Init()
         {
+            onLevelCompleted.onLevelEvent += HandleLevelCompleted;
             currentLevel = 0;
             ResetLevels();
+        }
+        public void Disable()
+        {
+            onLevelCompleted.onLevelEvent -= HandleLevelCompleted;
         }
         private void ResetLevels()
         {
