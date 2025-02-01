@@ -836,6 +836,17 @@ namespace IsmaLB.Input
                 },
                 {
                     ""name"": """",
+                    ""id"": ""9f1ad00f-c272-4c43-9fd3-b1b4d7dea264"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Submit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""82627dcc-3b13-4ba9-841d-e4b746d6553e"",
                     ""path"": ""*/{Cancel}"",
                     ""interactions"": """",
