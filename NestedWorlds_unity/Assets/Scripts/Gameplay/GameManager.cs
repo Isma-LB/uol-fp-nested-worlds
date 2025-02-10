@@ -1,7 +1,7 @@
 using IsmaLB.Levels;
 using UnityEngine;
 
-namespace IsmaLB
+namespace IsmaLB.Gameplay
 {
     public class GameManager : MonoBehaviour
     {

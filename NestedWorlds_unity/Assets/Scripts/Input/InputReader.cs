@@ -16,14 +16,18 @@ namespace IsmaLB.Input
         public UnityAction nextEvent;
 
         // Puzzle actions
-
         public UnityAction<Vector2> pointerPositionEvent;
         public UnityAction grabPressedEvent;
         public UnityAction grabReleasedEvent;
         public UnityAction restartEvent;
         public UnityAction quitEvent;
+
+        // menu actions
+        public UnityAction pauseMenuEvent;
+
         // internal input
         GameInputActions gameInput;
+
         void OnEnable()
         {
             if (gameInput == null)
@@ -120,6 +124,14 @@ namespace IsmaLB.Input
             if (context.phase == InputActionPhase.Performed)
             {
                 restartEvent?.Invoke();
+            }
+        }
+
+        public void OnPause(InputAction.CallbackContext context)
+        {
+            if (context.phase == InputActionPhase.Performed)
+            {
+                pauseMenuEvent?.Invoke();
             }
         }
         #endregion
