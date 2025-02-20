@@ -14,6 +14,8 @@ namespace IsmaLB.UI
         {
             ActivatePanels();
             mainPanel.Open();
+            // trigger main menu music
+            AudioManager.QueueMusicTrack(MusicTrackType.Menu);
         }
 
         #region Button callbacks
