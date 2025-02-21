@@ -13,6 +13,7 @@ namespace IsmaLB
 
         public bool IsGrounded { get; private set; }
         public float ForwardSpeed { get; private set; }
+        public bool JumpThisFrame { get; private set; }
         Rigidbody rb;
         CapsuleCollider capsuleCollider;
         RaycastHit groundHit;
@@ -23,7 +24,10 @@ namespace IsmaLB
             capsuleCollider = GetComponent<CapsuleCollider>();
         }
 
-        // Update is called once per frame
+        void Update()
+        {
+            JumpThisFrame = false;
+        }
         void FixedUpdate()
         {
             CheckGrounded();
@@ -41,6 +45,7 @@ namespace IsmaLB
             if (IsGrounded && jump)
             {
                 rb.AddForce(transform.up * jumpSpeed, ForceMode.Acceleration);
+                JumpThisFrame = true;
             }
         }
         private void CheckGrounded()

@@ -486,6 +486,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterController: {fileID: 6200266198139602448}
   animator: {fileID: 591105163398535522}
+  jumpSFX: {fileID: 6418180475301049370, guid: 2f8ee431a7c62b1eabd5ce021425d52b, type: 2}
 --- !u!4 &7403360068836553752 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 6544c702d4bb8d64c9f93241ab8533bd, type: 3}
