@@ -10,6 +10,7 @@ namespace IsmaLB.Gameplay
         void OnEnable()
         {
             puzzleProgression.Init();
+            AudioManager.QueueMusicTrack(MusicTrackType.Exploration);
         }
         void OnDisable()
         {

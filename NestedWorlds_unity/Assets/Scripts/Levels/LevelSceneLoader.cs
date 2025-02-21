@@ -58,12 +58,14 @@ namespace IsmaLB.Levels
         private void UnloadCurrentLevel()
         {
             if (currentLevel == null) return;
+            AudioManager.QueueMusicTrack(MusicTrackType.Exploration);
             SceneManager.UnloadSceneAsync(currentLevel.Scene.BuildIndex);
             currentLevel = null;
         }
 
         private void LoadLevel(LevelSO level)
         {
+            AudioManager.QueueMusicTrack(MusicTrackType.Puzzle);
             SceneManager.LoadSceneAsync(level.Scene.BuildIndex, LoadSceneMode.Additive);
             currentLevel = level;
         }
