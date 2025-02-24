@@ -1,4 +1,5 @@
 using System;
+using IsmaLB.Cameras;
 using IsmaLB.Input;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ namespace IsmaLB.Levels
         [Header("Visuals")]
         [SerializeField] GameObject particles;
         [SerializeField] GameObject target;
+        [SerializeField] EnergyNodeCamera nodeCamera;
 
         void OnEnable()
         {
@@ -34,6 +36,7 @@ namespace IsmaLB.Levels
             {
                 Debug.Log("Loading puzzle level");
                 loadPuzzleLevelEvent.Raise(puzzleLevel);
+                nodeCamera.EnableCamera();
             }
         }
         private void UpdateVisuals(LevelState state)

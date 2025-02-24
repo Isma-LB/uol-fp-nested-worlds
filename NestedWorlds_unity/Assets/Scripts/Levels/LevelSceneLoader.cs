@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using IsmaLB.Input;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +12,8 @@ namespace IsmaLB.Levels
         [SerializeField] PuzzleEventSO restartPuzzleEvent;
         [SerializeField] LevelEventSO loadLevelEvent;
         [Header("Broadcasts on")]
+        [SerializeField] TransitionEventSO loadTransitionEvent;
+        [SerializeField] TransitionEventSO unloadTransitionEvent;
         [SerializeField] LevelEventSO levelCompletedEvent;
 
         LevelSO currentLevel;
@@ -47,28 +47,49 @@ namespace IsmaLB.Levels
         private void HandleLevelCompleted()
         {
             levelCompletedEvent.Raise(currentLevel);
-            UnloadCurrentLevel();
+            StartCoroutine(UnloadCurrentLevel());
         }
 
         private void HandlePuzzleQuit()
         {
-            UnloadCurrentLevel();
-        }
-
-        private void UnloadCurrentLevel()
-        {
-            if (currentLevel == null) return;
-            AudioManager.QueueMusicTrack(MusicTrackType.Exploration);
-            SceneManager.UnloadSceneAsync(currentLevel.Scene.BuildIndex);
-            currentLevel = null;
+            StartCoroutine(UnloadCurrentLevel());
         }
 
         private void LoadLevel(LevelSO level)
         {
-            AudioManager.QueueMusicTrack(MusicTrackType.Puzzle);
-            SceneManager.LoadSceneAsync(level.Scene.BuildIndex, LoadSceneMode.Additive);
-            currentLevel = level;
+            StartCoroutine(LoadCurrentLevel(level));
+        }
+        IEnumerator UnloadCurrentLevel()
+        {
+            if (currentLevel == null) yield break;
+            LevelSO levelToUnload = currentLevel;
+            currentLevel = null;
+
+            AudioManager.QueueMusicTrack(MusicTrackType.Exploration);
+            unloadTransitionEvent.RaiseStartTransition();
+            // wait for the transition to complete 
+            yield return new WaitForSeconds(unloadTransitionEvent.Duration);
+            // unload level scene
+            SceneManager.UnloadSceneAsync(levelToUnload.Scene.BuildIndex);
+            unloadTransitionEvent.RaiseEndTransition();
         }
 
+        IEnumerator LoadCurrentLevel(LevelSO levelToLoad)
+        {
+            currentLevel = levelToLoad;
+            // Start transition
+            loadTransitionEvent.RaiseStartTransition();
+            AudioManager.QueueMusicTrack(MusicTrackType.Puzzle);
+            float loadStartTime = Time.timeSinceLevelLoad;
+            // Load scene async
+            yield return SceneManager.LoadSceneAsync(currentLevel.Scene.BuildIndex, LoadSceneMode.Additive);
+            // wait for the transition time
+            float remainingTime = loadTransitionEvent.Duration - (loadStartTime - Time.timeSinceLevelLoad);
+            if (remainingTime > 0)
+            {
+                yield return new WaitForSeconds(remainingTime);
+            }
+            loadTransitionEvent.RaiseEndTransition();
+        }
     }
 }

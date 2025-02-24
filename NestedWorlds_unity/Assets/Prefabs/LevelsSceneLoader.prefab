@@ -48,4 +48,6 @@ MonoBehaviour:
   quitPuzzleEvent: {fileID: 11400000, guid: d6a4b7a85290cbf05ab7d01b1031a561, type: 2}
   restartPuzzleEvent: {fileID: 11400000, guid: 468fe94a512bf39ea828e96057455c3c, type: 2}
   loadLevelEvent: {fileID: 11400000, guid: ffbbada26fef3ab7c899404741e7f060, type: 2}
+  loadTransitionEvent: {fileID: 11400000, guid: 5aeb911bec150a0b2a9b578d9eeab2ba, type: 2}
+  unloadTransitionEvent: {fileID: 11400000, guid: 2f17f5346a7282e14bfab087e9a6d3f0, type: 2}
   levelCompletedEvent: {fileID: 11400000, guid: 656cdab1a9220722a82311346768198d, type: 2}
