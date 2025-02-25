@@ -3,7 +3,8 @@
     "rootNamespace": "IsmaLB",
     "references": [
         "Unity.InputSystem",
-        "Eflatun.SceneReference"
+        "Eflatun.SceneReference",
+        "Unity.Cinemachine"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
