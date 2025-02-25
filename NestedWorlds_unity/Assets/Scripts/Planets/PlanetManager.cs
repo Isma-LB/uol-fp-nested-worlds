@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using IsmaLB.Input;
+using UnityEngine.Events;
 
 namespace IsmaLB.Planets
 {
@@ -15,6 +16,11 @@ namespace IsmaLB.Planets
         [SerializeField, Range(1, 3)] float playerPosMultiplayer = 1.25f;
         [SerializeField] float playerJumpOnForwardsTransition = 8;
         [SerializeField] AnimationCurve speed = AnimationCurve.EaseInOut(0f, 0.25f, 1.1f, 1f);
+        [Header("Broadcast on:")]
+        [SerializeField] PlanetEventSO planetChangeEvent;
+
+        public static event PlanetChanged OnPlanetChanged;
+        public delegate void PlanetChanged(int planetIndex, Vector3 position);
 
         enum Direction { forwards, backwards }
         bool transitionInProcess = false;
@@ -103,6 +109,8 @@ namespace IsmaLB.Planets
         IEnumerator Transition(Planet fromPlanet, Planet toPlanet)
         {
             float targetScale = fromPlanet.transform.localScale.x / toPlanet.transform.localScale.x;
+            // call planet change event
+            planetChangeEvent.Raise(toPlanet.transform.position * targetScale);
             // start planet transition coroutines
             Coroutine from = StartCoroutine(fromPlanet.TransitionTransform(targetScale, speed));
             Coroutine to = StartCoroutine(toPlanet.TransitionTransform(targetScale, speed));

@@ -124,6 +124,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+    - _sphere_center: {r: -10.22, g: -5.09, b: 1.56, a: 0}
     - _sunColor: {r: 1, g: 1, b: 1, a: 0.9019608}
     - _sun_dir: {r: -0.8598069, g: -0.49273664, b: -0.13395098, a: 0}
   m_BuildTextureStacks: []
