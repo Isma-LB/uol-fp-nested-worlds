@@ -35,9 +35,7 @@ namespace IsmaLB.Input
                 gameInput = new GameInputActions();
                 gameInput.Player.SetCallbacks(this);
                 gameInput.Puzzle.SetCallbacks(this);
-                EnablePlayerInput();
-                // test
-                gameInput.Puzzle.Enable();
+                EnableExplorationInput();
             }
         }
         void OnDisable()
@@ -48,12 +46,18 @@ namespace IsmaLB.Input
         {
             gameInput.Player.Disable();
             gameInput.Puzzle.Disable();
-            gameInput.UI.Disable();
         }
-        public void EnablePlayerInput()
+        public void EnableExplorationInput()
         {
             gameInput.Player.Enable();
+            gameInput.Puzzle.Disable();
         }
+        public void EnablePuzzleInput()
+        {
+            gameInput.Player.Disable();
+            gameInput.Puzzle.Enable();
+        }
+
 
         #region Callbacks
 
