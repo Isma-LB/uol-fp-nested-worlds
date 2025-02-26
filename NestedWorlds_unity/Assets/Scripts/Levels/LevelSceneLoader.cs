@@ -76,6 +76,7 @@ namespace IsmaLB.Levels
 
         IEnumerator LoadCurrentLevel(LevelSO levelToLoad)
         {
+            if (currentLevel != null) yield break;
             currentLevel = levelToLoad;
             // Start transition
             loadTransitionEvent.RaiseStartTransition();
