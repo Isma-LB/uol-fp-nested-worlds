@@ -17,6 +17,8 @@ namespace IsmaLB.Levels
         [SerializeField] LevelEventSO levelCompletedEvent;
 
         LevelSO currentLevel;
+        bool isReloadingLevel = false;
+        bool isInTransition = false;
 
         void OnEnable()
         {
@@ -35,13 +37,17 @@ namespace IsmaLB.Levels
 
         private void HandlePuzzleRestart()
         {
+            if (isReloadingLevel == true) return;
             StartCoroutine(RestartCurrentLevel());
         }
 
         private IEnumerator RestartCurrentLevel()
         {
-            yield return SceneManager.UnloadSceneAsync(currentLevel.Scene.BuildIndex);
-            LoadLevel(currentLevel);
+            isReloadingLevel = true;
+            LevelSO levelToReload = currentLevel;
+            yield return SceneManager.LoadSceneAsync(levelToReload.Scene.BuildIndex, LoadSceneMode.Additive);
+            yield return SceneManager.UnloadSceneAsync(levelToReload.Scene.BuildIndex);
+            isReloadingLevel = false;
         }
 
         private void HandleLevelCompleted()
@@ -52,11 +58,13 @@ namespace IsmaLB.Levels
 
         private void HandlePuzzleQuit()
         {
+            if (isInTransition) return;
             StartCoroutine(UnloadCurrentLevel());
         }
 
         private void LoadLevel(LevelSO level)
         {
+            if (isInTransition) return;
             StartCoroutine(LoadCurrentLevel(level));
         }
         IEnumerator UnloadCurrentLevel()
@@ -65,13 +73,16 @@ namespace IsmaLB.Levels
             LevelSO levelToUnload = currentLevel;
             currentLevel = null;
 
-            AudioManager.QueueMusicTrack(MusicTrackType.Exploration);
+            // start transition
+            isInTransition = true;
             unloadTransitionEvent.RaiseStartTransition();
+            AudioManager.QueueMusicTrack(MusicTrackType.Exploration);
             // wait for the transition to complete 
             yield return new WaitForSeconds(unloadTransitionEvent.Duration);
             // unload level scene
             SceneManager.UnloadSceneAsync(levelToUnload.Scene.BuildIndex);
             unloadTransitionEvent.RaiseEndTransition();
+            isInTransition = false;
         }
 
         IEnumerator LoadCurrentLevel(LevelSO levelToLoad)
@@ -79,6 +90,7 @@ namespace IsmaLB.Levels
             if (currentLevel != null) yield break;
             currentLevel = levelToLoad;
             // Start transition
+            isInTransition = true;
             loadTransitionEvent.RaiseStartTransition();
             AudioManager.QueueMusicTrack(MusicTrackType.Puzzle);
             float loadStartTime = Time.timeSinceLevelLoad;
@@ -91,6 +103,7 @@ namespace IsmaLB.Levels
                 yield return new WaitForSeconds(remainingTime);
             }
             loadTransitionEvent.RaiseEndTransition();
+            isInTransition = false;
         }
     }
 }
