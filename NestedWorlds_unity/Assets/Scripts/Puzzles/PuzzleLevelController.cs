@@ -18,6 +18,7 @@ namespace IsmaLB.Puzzles
         void Start()
         {
             targets = FindObjectsByType<ParticlesTarget>(FindObjectsSortMode.None);
+            inputReader.EnablePuzzleInput();
         }
         void OnEnable()
         {
@@ -39,8 +40,6 @@ namespace IsmaLB.Puzzles
         {
             restartPuzzleEvent.Raise();
         }
-
-
 
         // Update is called once per frame
         void Update()

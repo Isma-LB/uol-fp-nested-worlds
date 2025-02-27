@@ -13,7 +13,6 @@ namespace IsmaLB.Puzzles
         }
         public void Decrease(float amount)
         {
-            if (IsGoalReached) return;
             current -= amount;
             current = Mathf.Max(0, current);
         }
@@ -22,7 +21,8 @@ namespace IsmaLB.Puzzles
             current += amount;
             current = Mathf.Min(current, goal);
         }
-        public bool IsGoalReached => current == goal;
-        public float Progress { get => current / goal; }
+        // goal is considered complete when it reaches 90% to smooth out rounding issues
+        public bool IsGoalReached => current >= goal * 0.95f;
+        public float Progress { get => IsGoalReached ? 1 : current / goal; }
     }
 }

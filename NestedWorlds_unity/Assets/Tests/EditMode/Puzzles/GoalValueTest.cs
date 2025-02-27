@@ -59,12 +59,13 @@ namespace Puzzles
             Assert.AreEqual(0, value.Progress);
         }
         [Test]
-        public void Progress_DoesNotDecreaseAfterGoalIsReached()
+        public void Progress_95PercentIsCompleted()
         {
             GoalProgress value = new(1);
             value.Increase(1);
-            value.Decrease(1);
+            value.Decrease(0.05f);
             Assert.AreEqual(1, value.Progress);
+            Assert.AreEqual(true, value.IsGoalReached);
         }
         [Test]
         public void IsGoalReached_StartsAsFalse()
