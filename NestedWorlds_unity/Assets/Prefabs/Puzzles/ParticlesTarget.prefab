@@ -83,7 +83,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particlesTag: Particles
-  energyGoal: 25
+  energyGoal: 15
   energyDecay: 10
   graphic: {fileID: 5021613073468300309}
   emptyColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
