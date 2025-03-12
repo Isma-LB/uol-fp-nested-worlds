@@ -2052,6 +2052,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 37142738281243205, guid: 8238bf41739fafd7089bf46402d2a5d0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.977644
+      objectReference: {fileID: 0}
+    - target: {fileID: 37142738281243205, guid: 8238bf41739fafd7089bf46402d2a5d0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 12.903645
+      objectReference: {fileID: 0}
+    - target: {fileID: 37142738281243205, guid: 8238bf41739fafd7089bf46402d2a5d0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.2716722
+      objectReference: {fileID: 0}
+    - target: {fileID: 37142738281243205, guid: 8238bf41739fafd7089bf46402d2a5d0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6661812
+      objectReference: {fileID: 0}
+    - target: {fileID: 37142738281243205, guid: 8238bf41739fafd7089bf46402d2a5d0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.44456586
+      objectReference: {fileID: 0}
+    - target: {fileID: 37142738281243205, guid: 8238bf41739fafd7089bf46402d2a5d0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.5987958
+      objectReference: {fileID: 0}
+    - target: {fileID: 37142738281243205, guid: 8238bf41739fafd7089bf46402d2a5d0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.0027466826
+      objectReference: {fileID: 0}
     - target: {fileID: 1691273669942261854, guid: 8238bf41739fafd7089bf46402d2a5d0, type: 3}
       propertyPath: m_Name
       value: CameraSystem
@@ -2095,6 +2123,10 @@ PrefabInstance:
     - target: {fileID: 2946856479579172496, guid: 8238bf41739fafd7089bf46402d2a5d0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3197852557286628495, guid: 8238bf41739fafd7089bf46402d2a5d0, type: 3}
+      propertyPath: field of view
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 3318751725659185885, guid: 8238bf41739fafd7089bf46402d2a5d0, type: 3}
       propertyPath: Target.TrackingTarget

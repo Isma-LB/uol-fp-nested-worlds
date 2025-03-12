@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 1656724207977448114}
   - component: {fileID: 3966531467660838489}
   - component: {fileID: 5956504838251399409}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EnergyNode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -332,14 +332,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 038fd2eb9c8ff99adba9f83e2ae9665b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTag: Player
-  rangeIndicator: {fileID: 680458701135995714}
-  inputReader: {fileID: 11400000, guid: 2b22ddac83cc37e27a17d6c040b4f307, type: 2}
   puzzleLevel: {fileID: 11400000, guid: 3ffd96ad2a31e41b8803e39977295bbe, type: 2}
   loadPuzzleLevelEvent: {fileID: 11400000, guid: ffbbada26fef3ab7c899404741e7f060, type: 2}
   particles: {fileID: 6039788474223907346}
   target: {fileID: 1656724207820951684}
   nodeCamera: {fileID: 5323641148956343995}
+  rangeIndicator: {fileID: 680458701135995714}
 --- !u!135 &5956504838251399409
 SphereCollider:
   m_ObjectHideFlags: 0

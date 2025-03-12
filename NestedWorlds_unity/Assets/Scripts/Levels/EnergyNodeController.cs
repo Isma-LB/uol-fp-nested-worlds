@@ -5,33 +5,42 @@ using UnityEngine;
 
 namespace IsmaLB.Levels
 {
-    public class EnergyNodeController : PlayerRangeItem
+    public class EnergyNodeController : MonoBehaviour, IIntractable
     {
-        [SerializeField] InputReader inputReader;
         [SerializeField] LevelSO puzzleLevel;
         [SerializeField] LevelEventSO loadPuzzleLevelEvent;
         [Header("Visuals")]
         [SerializeField] GameObject particles;
         [SerializeField] GameObject target;
         [SerializeField] EnergyNodeCamera nodeCamera;
+        [SerializeField] GameObject rangeIndicator;
 
-        void OnEnable()
+        void Start()
         {
-            inputReader.interactEvent += OnInteract;
+            rangeIndicator.SetActive(false);
         }
-        void OnDisable()
-        {
-            inputReader.interactEvent -= OnInteract;
-        }
-
         void Update()
         {
             UpdateVisuals(puzzleLevel.State);
         }
+        public void Interact()
+        {
+            OnInteract();
+        }
+        public void Select()
+        {
+            if (puzzleLevel.State == LevelState.Unlocked)
+            {
+                rangeIndicator.SetActive(true);
+            }
+        }
 
+        public void Deselect()
+        {
+            rangeIndicator.SetActive(false);
+        }
         private void OnInteract()
         {
-            if (IsPlayerInRange == false) return;
             if (puzzleLevel.State == LevelState.Unlocked)
             {
                 Debug.Log("Loading puzzle level");
@@ -56,10 +65,6 @@ namespace IsmaLB.Levels
                     particles.SetActive(false);
                     return;
             }
-        }
-        protected override void HandleRangeIndicatorGraphic(bool on)
-        {
-            base.HandleRangeIndicatorGraphic(puzzleLevel.State == LevelState.Unlocked && on);
         }
 
     }
