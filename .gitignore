@@ -1,3 +1,4 @@
 # ignore Audacity project files
 *.aup3
 NestedWorlds_unity/mono_crash.mem.201519.1.blob
+*.blob
