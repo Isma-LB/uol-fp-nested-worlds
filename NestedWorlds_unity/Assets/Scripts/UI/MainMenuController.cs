@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,6 +10,8 @@ namespace IsmaLB.UI
         [SerializeField] UIPanel mainPanel;
         [SerializeField] UIPanel settingsPanel;
         [SerializeField] UIPanel creditsPanel;
+        [SerializeField] MainMenuStoryManager storyManager;
+        bool isLoadingScene;
 
         void Start()
         {
@@ -21,7 +24,9 @@ namespace IsmaLB.UI
         #region Button callbacks
         public void Play()
         {
-            LoadGameScene();
+            if (isLoadingScene) return;
+            isLoadingScene = true;
+            StartCoroutine(LoadGameScene());
         }
         public void OpenSettings()
         {
@@ -39,9 +44,12 @@ namespace IsmaLB.UI
         {
             mainPanel.Open();
         }
-        private void LoadGameScene()
+        private IEnumerator LoadGameScene()
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            AsyncOperation sceneLoad = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+            sceneLoad.allowSceneActivation = false;
+            yield return storyManager.StartStory();
+            sceneLoad.allowSceneActivation = true;
         }
         private void ActivatePanels()
         {
