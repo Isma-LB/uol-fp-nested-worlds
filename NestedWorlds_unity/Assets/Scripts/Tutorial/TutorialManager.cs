@@ -7,10 +7,12 @@ namespace IsmaLB.Tutorial
     {
         [SerializeField] TutorialStepSO[] steps;
         int currentStep = 0;
+        const string TUTORIAL_STEP_KEY = "tutorial_step";
 
         void Start()
         {
-            // TODO: save and restore the current step
+            // load the last step stored to resume the tutorial there
+            currentStep = PlayerPrefs.GetInt(TUTORIAL_STEP_KEY, 0);
             for (int i = 0; i < steps.Length; i++)
             {
                 steps[i].Init();
@@ -25,6 +27,8 @@ namespace IsmaLB.Tutorial
             {
                 steps[currentStep].SetStatus(false);
                 currentStep++;
+                // save updated step
+                PlayerPrefs.SetInt(TUTORIAL_STEP_KEY, currentStep);
                 ActivateCurrentStep();
             }
         }
@@ -37,6 +41,10 @@ namespace IsmaLB.Tutorial
             {
                 steps[currentStep].SetStatus(true);
             }
+        }
+        public void RestartTutorial()
+        {
+            PlayerPrefs.DeleteKey(TUTORIAL_STEP_KEY);
         }
     }
 }
