@@ -10,13 +10,15 @@ namespace IsmaLB.Levels
 
         [SerializeField] List<LevelSO> levels;
         [SerializeField] List<EnergyNodeSO> nodes;
+        [SerializeField] List<EnergyNodeSO> orderedNodes;
+        [SerializeField] int keepOrderUntilIndex = 2;
         [Header("Listens on")]
         [SerializeField] LevelEventSO onLevelCompleted;
         int currentLevel = 0;
 
         void OnValidate()
         {
-            if (levels.Count != nodes.Count)
+            if (levels.Count <= nodes.Count)
             {
                 Debug.LogWarning("Please ensure there are as many nodes as levels");
             }
@@ -24,8 +26,6 @@ namespace IsmaLB.Levels
 
         private void HandleLevelCompleted(LevelSO level)
         {
-            Debug.Log("level completed: " + level.Scene.Name);
-
             SetLevelState(currentLevel, LevelState.Completed);
             // unlock next level
             currentLevel++;
@@ -50,21 +50,37 @@ namespace IsmaLB.Levels
         }
         private void ResetLevels()
         {
+            RandomizeNodes();
+            // assign levels
             for (int i = 0; i < levels.Count; i++)
             {
                 LevelSO level = levels[i];
-                EnergyNodeSO node = nodes[i];
+                EnergyNodeSO node = orderedNodes[i];
                 node.level = level;
                 node.SetState(LevelState.Locked);
             }
             // unlock the first node
-            nodes[0].SetState(LevelState.Unlocked);
+            orderedNodes[0].SetState(LevelState.Unlocked);
         }
+
+        private void RandomizeNodes()
+        {
+            orderedNodes = nodes.GetRange(0, keepOrderUntilIndex);
+            // randomize remaining nodes
+            List<EnergyNodeSO> randomNodes = nodes.GetRange(keepOrderUntilIndex, nodes.Count - keepOrderUntilIndex);
+            while (randomNodes.Count > 0)
+            {
+                int randomIndex = Random.Range(0, randomNodes.Count - 1);
+                orderedNodes.Add(randomNodes[randomIndex]);
+                randomNodes.RemoveAt(randomIndex);
+            }
+        }
+
         private void SetLevelState(int index, LevelState state)
         {
-            if (0 <= index && index < nodes.Count)
+            if (0 <= index && index < orderedNodes.Count)
             {
-                nodes[index].SetState(state);
+                orderedNodes[index].SetState(state);
             }
         }
     }
