@@ -7,12 +7,6 @@ namespace IsmaLB.Levels
     public class LevelSO : ScriptableObject
     {
         [SerializeField] SceneReference puzzleScene;
-        [SerializeField] LevelState state = LevelState.Locked;
-        public LevelState State => state;
         public SceneReference Scene => puzzleScene;
-        public void SetState(LevelState newState)
-        {
-            state = newState;
-        }
     }
 }

@@ -254,6 +254,10 @@ PrefabInstance:
       value: EnergyNode
       objectReference: {fileID: 0}
     - target: {fileID: 3966531467660838489, guid: 01774d4b0e8d04df6ba128548803c6ef, type: 3}
+      propertyPath: nodeData
+      value: 
+      objectReference: {fileID: 11400000, guid: 3a54630176f4b6bd391ad7f5352a0b1a, type: 2}
+    - target: {fileID: 3966531467660838489, guid: 01774d4b0e8d04df6ba128548803c6ef, type: 3}
       propertyPath: puzzleLevel
       value: 
       objectReference: {fileID: 11400000, guid: c0acdc961f9d249809297219a0e92688, type: 2}
@@ -534,6 +538,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3966531467660838489, guid: 01774d4b0e8d04df6ba128548803c6ef, type: 3}
+      propertyPath: nodeData
+      value: 
+      objectReference: {fileID: 11400000, guid: 5e12dc13058c7a6caa959f6cb499d6c3, type: 2}
     - target: {fileID: 3966531467660838489, guid: 01774d4b0e8d04df6ba128548803c6ef, type: 3}
       propertyPath: puzzleLevel
       value: 

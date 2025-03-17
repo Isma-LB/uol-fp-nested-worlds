@@ -19,4 +19,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 74e6c1641db4e1770aef84e292c7fdec, type: 2}
   - {fileID: 11400000, guid: 3ef068450fab16f10bef56ccbfd5aba7, type: 2}
   - {fileID: 11400000, guid: d4c6199ad3f970295959acfceb0ff2d4, type: 2}
+  nodes:
+  - {fileID: 11400000, guid: 039011e6f163aa66ea587c8c23f48aee, type: 2}
+  - {fileID: 11400000, guid: 3a54630176f4b6bd391ad7f5352a0b1a, type: 2}
+  - {fileID: 11400000, guid: ff510fbc2cfb245aa9736a82e63449a0, type: 2}
+  - {fileID: 11400000, guid: 22d1d768ab0cd011681897f9ac3ab740, type: 2}
+  - {fileID: 11400000, guid: b0e9cfb0fbfba08c6aac0441478a7959, type: 2}
+  - {fileID: 11400000, guid: 5e12dc13058c7a6caa959f6cb499d6c3, type: 2}
   onLevelCompleted: {fileID: 11400000, guid: 656cdab1a9220722a82311346768198d, type: 2}

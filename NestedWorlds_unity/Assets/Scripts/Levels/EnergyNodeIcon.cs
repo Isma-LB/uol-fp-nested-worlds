@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace IsmaLB
+namespace IsmaLB.Levels
 {
     public class EnergyNodeIcon : MonoBehaviour
     {

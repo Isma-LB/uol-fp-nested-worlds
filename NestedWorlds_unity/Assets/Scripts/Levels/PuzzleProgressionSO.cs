@@ -1,4 +1,4 @@
-using System;
+// using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,24 +9,33 @@ namespace IsmaLB.Levels
     {
 
         [SerializeField] List<LevelSO> levels;
+        [SerializeField] List<EnergyNodeSO> nodes;
         [Header("Listens on")]
         [SerializeField] LevelEventSO onLevelCompleted;
         int currentLevel = 0;
 
+        void OnValidate()
+        {
+            if (levels.Count != nodes.Count)
+            {
+                Debug.LogWarning("Please ensure there are as many nodes as levels");
+            }
+        }
+
         private void HandleLevelCompleted(LevelSO level)
         {
             Debug.Log("level completed: " + level.Scene.Name);
-            level.SetState(LevelState.Completed);
+
+            SetLevelState(currentLevel, LevelState.Completed);
             // unlock next level
             currentLevel++;
-            if (currentLevel < levels.Count)
-            {
-                levels[currentLevel].SetState(LevelState.Unlocked);
-            }
-            else
+            SetLevelState(currentLevel, LevelState.Unlocked);
+
+            if (currentLevel >= levels.Count)
             {
                 Debug.Log("All levels completed!");
             }
+
         }
 
         public void Init()
@@ -41,11 +50,22 @@ namespace IsmaLB.Levels
         }
         private void ResetLevels()
         {
-            foreach (LevelSO level in levels)
+            for (int i = 0; i < levels.Count; i++)
             {
-                level.SetState(LevelState.Locked);
+                LevelSO level = levels[i];
+                EnergyNodeSO node = nodes[i];
+                node.level = level;
+                node.SetState(LevelState.Locked);
             }
-            levels[0].SetState(LevelState.Unlocked);
+            // unlock the first node
+            nodes[0].SetState(LevelState.Unlocked);
+        }
+        private void SetLevelState(int index, LevelState state)
+        {
+            if (0 <= index && index < nodes.Count)
+            {
+                nodes[index].SetState(state);
+            }
         }
     }
 }

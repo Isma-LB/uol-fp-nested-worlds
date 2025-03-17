@@ -7,7 +7,7 @@ namespace IsmaLB.Levels
 {
     public class EnergyNodeController : MonoBehaviour, IIntractable
     {
-        [SerializeField] LevelSO puzzleLevel;
+        [SerializeField] EnergyNodeSO nodeData;
         [SerializeField] LevelEventSO loadPuzzleLevelEvent;
         [Header("Visuals")]
         [SerializeField] GameObject particles;
@@ -23,7 +23,7 @@ namespace IsmaLB.Levels
         }
         void Update()
         {
-            UpdateVisuals(puzzleLevel.State);
+            UpdateVisuals(nodeData.State);
         }
         public void Interact()
         {
@@ -31,11 +31,11 @@ namespace IsmaLB.Levels
         }
         public void Select()
         {
-            if (puzzleLevel.State == LevelState.Unlocked)
+            if (nodeData.State == LevelState.Unlocked)
             {
                 rangeIndicator.SetActive(true);
             }
-            else if (puzzleLevel.State == LevelState.Locked)
+            else if (nodeData.State == LevelState.Locked)
             {
                 rangeLockedIndicator.SetActive(true);
             }
@@ -48,10 +48,10 @@ namespace IsmaLB.Levels
         }
         private void OnInteract()
         {
-            if (puzzleLevel.State == LevelState.Unlocked)
+            if (nodeData.State == LevelState.Unlocked)
             {
                 Debug.Log("Loading puzzle level");
-                loadPuzzleLevelEvent.Raise(puzzleLevel);
+                loadPuzzleLevelEvent.Raise(nodeData.level);
                 nodeCamera.EnableCamera();
             }
         }
