@@ -14,10 +14,12 @@ namespace IsmaLB.Levels
         [SerializeField] GameObject target;
         [SerializeField] EnergyNodeCamera nodeCamera;
         [SerializeField] GameObject rangeIndicator;
+        [SerializeField] GameObject rangeLockedIndicator;
 
         void Start()
         {
             rangeIndicator.SetActive(false);
+            rangeLockedIndicator.SetActive(false);
         }
         void Update()
         {
@@ -33,11 +35,16 @@ namespace IsmaLB.Levels
             {
                 rangeIndicator.SetActive(true);
             }
+            else if (puzzleLevel.State == LevelState.Locked)
+            {
+                rangeLockedIndicator.SetActive(true);
+            }
         }
 
         public void Deselect()
         {
             rangeIndicator.SetActive(false);
+            rangeLockedIndicator.SetActive(false);
         }
         private void OnInteract()
         {
@@ -53,7 +60,7 @@ namespace IsmaLB.Levels
             switch (state)
             {
                 case LevelState.Locked:
-                    target.SetActive(false);
+                    target.SetActive(true);
                     particles.SetActive(false);
                     return;
                 case LevelState.Unlocked:
@@ -61,8 +68,9 @@ namespace IsmaLB.Levels
                     particles.SetActive(true);
                     return;
                 case LevelState.Completed:
-                    target.SetActive(true);
+                    target.SetActive(false);
                     particles.SetActive(false);
+                    Deselect();
                     return;
             }
         }
