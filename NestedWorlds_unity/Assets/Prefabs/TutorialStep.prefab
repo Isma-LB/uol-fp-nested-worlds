@@ -9,14 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7351423541995099797}
-  - component: {fileID: 7217515294805732692}
   - component: {fileID: 7030580214352214701}
   - component: {fileID: 4307347755340070231}
   - component: {fileID: 4465457584022086659}
   m_Layer: 0
   m_Name: TutorialStep
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -36,27 +35,6 @@ Transform:
   - {fileID: 3059559174857838698}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 24.139, y: -25.561, z: -51.561}
---- !u!135 &7217515294805732692
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1571721530652359798}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 3
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &7030580214352214701
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -114,6 +92,7 @@ MonoBehaviour:
   tutorialStep: {fileID: 11400000, guid: c88ddacc476eebf69954cc1b676f7c31, type: 2}
   panel: {fileID: 6696712095966501216}
   tutorialText: {fileID: 516583393714386782}
+  effectObject: {fileID: 0}
 --- !u!1 &5443597633884496978
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,7 +125,7 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 3059559174857838698}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
@@ -179,7 +158,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press 1 to grow
+  m_text: This is a test tutorial text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 88f6e43574fc6b800a497336f53bdf66, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: cee27f2a8454eca6789c54817eef875e, type: 2}
@@ -206,15 +185,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.6
+  m_fontSize: 0.4
   m_fontSizeBase: 0.7
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 0.1
-  m_fontSizeMax: 0.6
+  m_fontSizeMax: 0.5
   m_fontStyle: 1
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -289,7 +268,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 2.53}
+  m_AnchoredPosition: {x: 0, y: 2}
   m_SizeDelta: {x: 5, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &226132286367275247

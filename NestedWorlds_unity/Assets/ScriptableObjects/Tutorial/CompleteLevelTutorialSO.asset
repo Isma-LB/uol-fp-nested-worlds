@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da7a970a1b8eb042f9d6b2f3227499cb, type: 3}
-  m_Name: MoveTutorialSO
+  m_Script: {fileID: 11500000, guid: e7998fd1b36b84dd39af90fff85cafdf, type: 3}
+  m_Name: CompleteLevelTutorialSO
   m_EditorClassIdentifier: 
-  text: Use WASD to move
-  delay: 0.5
-  inputReader: {fileID: 11400000, guid: 2b22ddac83cc37e27a17d6c040b4f307, type: 2}
+  text: 'Solve the puzzle to unlock the next one '
+  delay: 10
+  levelEvent: {fileID: 11400000, guid: 656cdab1a9220722a82311346768198d, type: 2}

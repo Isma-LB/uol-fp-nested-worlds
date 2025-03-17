@@ -1,9 +1,9 @@
 using IsmaLB.Planets;
 using UnityEngine;
 
-namespace IsmaLB
+namespace IsmaLB.Tutorial
 {
-    [CreateAssetMenu(fileName = "ChangePlanetTutorialSO", menuName = "Scriptable Objects/ChangePlanetTutorialSO")]
+    [CreateAssetMenu(fileName = "ChangePlanetTutorialSO", menuName = "Scriptable Objects/Tutorial/ChangePlanetTutorialSO")]
     public class ChangePlanetTutorialSO : TutorialStepSO
     {
         [SerializeField] int targetPlanetIndex = 0;

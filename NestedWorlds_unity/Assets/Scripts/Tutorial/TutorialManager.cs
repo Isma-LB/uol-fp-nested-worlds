@@ -1,6 +1,7 @@
+using System;
 using UnityEngine;
 
-namespace IsmaLB
+namespace IsmaLB.Tutorial
 {
     public class TutorialManager : MonoBehaviour
     {
@@ -12,29 +13,29 @@ namespace IsmaLB
             // TODO: save and restore the current step
             for (int i = 0; i < steps.Length; i++)
             {
-                steps[i].isActive = false;
                 steps[i].Init();
+                steps[i].SetStatus(false);
             }
+            ActivateCurrentStep();
         }
 
         void Update()
         {
-            for (int i = currentStep; i < steps.Length; i++)
+            if (IsValidStep(currentStep) && steps[currentStep].Evaluate())
             {
-                if (i == currentStep)
-                {
-                    steps[i].isActive = true;
-                    if (steps[i].Evaluate())
-                    {
-                        steps[currentStep].isActive = false;
-                        currentStep++;
-                        Debug.Log("Next step");
-                    }
-                }
-                else
-                {
-                    steps[i].isActive = false;
-                }
+                steps[currentStep].SetStatus(false);
+                currentStep++;
+                ActivateCurrentStep();
+            }
+        }
+
+        private bool IsValidStep(int currentStep) => (0 <= currentStep && currentStep < steps.Length);
+
+        private void ActivateCurrentStep()
+        {
+            if (IsValidStep(currentStep))
+            {
+                steps[currentStep].SetStatus(true);
             }
         }
     }

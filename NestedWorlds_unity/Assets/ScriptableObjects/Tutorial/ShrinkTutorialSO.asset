@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9111d003b166ca58b6cadf954507993, type: 3}
   m_Name: ShrinkTutorialSO
   m_EditorClassIdentifier: 
-  text: Press 2 to shrink and change planet
-  delay: 0
-  isActive: 0
+  text: To shrink and change planet
+  delay: 5
   targetPlanetIndex: 1
   planetsList: {fileID: 11400000, guid: 39eb9edbba2f9aad186c61dd035d0373, type: 2}

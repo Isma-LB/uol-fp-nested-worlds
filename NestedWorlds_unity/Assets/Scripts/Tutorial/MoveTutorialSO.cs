@@ -2,9 +2,9 @@ using System;
 using IsmaLB.Input;
 using UnityEngine;
 
-namespace IsmaLB
+namespace IsmaLB.Tutorial
 {
-    [CreateAssetMenu(fileName = "MoveTutorialSO", menuName = "Scriptable Objects/MoveTutorialSO")]
+    [CreateAssetMenu(fileName = "MoveTutorialSO", menuName = "Scriptable Objects/Tutorial/MoveTutorialSO")]
     public class MoveTutorialSO : TutorialStepSO
     {
         [SerializeField] InputReader inputReader;

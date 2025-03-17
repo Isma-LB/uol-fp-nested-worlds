@@ -1,8 +1,7 @@
-using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
-namespace IsmaLB
+namespace IsmaLB.Tutorial
 {
     public abstract class TutorialStepSO : ScriptableObject
     {
@@ -10,7 +9,17 @@ namespace IsmaLB
         [SerializeField, Min(0)] float delay;
         public string Text => text;
         public float Delay => delay;
-        public bool isActive = false;
+        public bool IsActive => active;
+        public event UnityAction OnStatusChanged;
+        bool active = false;
+        public void SetStatus(bool isActive)
+        {
+            if (active != isActive)
+            {
+                active = isActive;
+                OnStatusChanged?.Invoke();
+            }
+        }
         public abstract bool Evaluate();
         public virtual void Init() { }
     }

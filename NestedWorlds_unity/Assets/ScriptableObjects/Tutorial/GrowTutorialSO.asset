@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9111d003b166ca58b6cadf954507993, type: 3}
   m_Name: GrowTutorialSO
   m_EditorClassIdentifier: 
-  text: Press 1 to grow and change planet
-  delay: 0
-  isActive: 1
+  text: To grow and change planet
+  delay: 0.5
   targetPlanetIndex: 0
   planetsList: {fileID: 11400000, guid: 39eb9edbba2f9aad186c61dd035d0373, type: 2}

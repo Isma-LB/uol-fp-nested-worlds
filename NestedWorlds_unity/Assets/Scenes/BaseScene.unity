@@ -1580,6 +1580,8 @@ MonoBehaviour:
   steps:
   - {fileID: 11400000, guid: 6ee86b2647b4c2f8e9e8216c0d19209f, type: 2}
   - {fileID: 11400000, guid: c88ddacc476eebf69954cc1b676f7c31, type: 2}
+  - {fileID: 11400000, guid: 1658dbe2372733c1c8e3ff9aa3e8e449, type: 2}
+  - {fileID: 11400000, guid: 36b86eded841d1c7bb8a1cb623a2ddf0, type: 2}
   - {fileID: 11400000, guid: 3306cefc82c93e7d8aefc44783cf28a1, type: 2}
 --- !u!4 &1557052137
 Transform:
