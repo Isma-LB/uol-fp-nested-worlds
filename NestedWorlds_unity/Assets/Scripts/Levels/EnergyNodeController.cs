@@ -7,21 +7,23 @@ namespace IsmaLB.Levels
 {
     public class EnergyNodeController : MonoBehaviour, IIntractable
     {
-        [SerializeField] LevelSO puzzleLevel;
+        [SerializeField] EnergyNodeSO nodeData;
         [SerializeField] LevelEventSO loadPuzzleLevelEvent;
         [Header("Visuals")]
         [SerializeField] GameObject particles;
         [SerializeField] GameObject target;
         [SerializeField] EnergyNodeCamera nodeCamera;
         [SerializeField] GameObject rangeIndicator;
+        [SerializeField] GameObject rangeLockedIndicator;
 
         void Start()
         {
             rangeIndicator.SetActive(false);
+            rangeLockedIndicator.SetActive(false);
         }
         void Update()
         {
-            UpdateVisuals(puzzleLevel.State);
+            UpdateVisuals(nodeData.State);
         }
         public void Interact()
         {
@@ -29,22 +31,27 @@ namespace IsmaLB.Levels
         }
         public void Select()
         {
-            if (puzzleLevel.State == LevelState.Unlocked)
+            if (nodeData.State == LevelState.Unlocked)
             {
                 rangeIndicator.SetActive(true);
+            }
+            else if (nodeData.State == LevelState.Locked)
+            {
+                rangeLockedIndicator.SetActive(true);
             }
         }
 
         public void Deselect()
         {
             rangeIndicator.SetActive(false);
+            rangeLockedIndicator.SetActive(false);
         }
         private void OnInteract()
         {
-            if (puzzleLevel.State == LevelState.Unlocked)
+            if (nodeData.State == LevelState.Unlocked)
             {
                 Debug.Log("Loading puzzle level");
-                loadPuzzleLevelEvent.Raise(puzzleLevel);
+                loadPuzzleLevelEvent.Raise(nodeData.level);
                 nodeCamera.EnableCamera();
             }
         }
@@ -53,7 +60,7 @@ namespace IsmaLB.Levels
             switch (state)
             {
                 case LevelState.Locked:
-                    target.SetActive(false);
+                    target.SetActive(true);
                     particles.SetActive(false);
                     return;
                 case LevelState.Unlocked:
@@ -61,8 +68,9 @@ namespace IsmaLB.Levels
                     particles.SetActive(true);
                     return;
                 case LevelState.Completed:
-                    target.SetActive(true);
+                    target.SetActive(false);
                     particles.SetActive(false);
+                    Deselect();
                     return;
             }
         }

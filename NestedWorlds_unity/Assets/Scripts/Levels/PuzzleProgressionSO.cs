@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,24 +8,33 @@ namespace IsmaLB.Levels
     {
 
         [SerializeField] List<LevelSO> levels;
+        [SerializeField] List<EnergyNodeSO> nodes;
+        public List<EnergyNodeSO> orderedNodes { get; private set; } = new();
+        [SerializeField] int keepOrderUntilIndex = 2;
         [Header("Listens on")]
         [SerializeField] LevelEventSO onLevelCompleted;
         int currentLevel = 0;
 
+        void OnValidate()
+        {
+            if (levels.Count > nodes.Count)
+            {
+                Debug.LogWarning("Please ensure there are as many nodes as levels");
+            }
+        }
+
         private void HandleLevelCompleted(LevelSO level)
         {
-            Debug.Log("level completed: " + level.Scene.Name);
-            level.SetState(LevelState.Completed);
+            SetLevelState(currentLevel, LevelState.Completed);
             // unlock next level
             currentLevel++;
-            if (currentLevel < levels.Count)
-            {
-                levels[currentLevel].SetState(LevelState.Unlocked);
-            }
-            else
+            SetLevelState(currentLevel, LevelState.Unlocked);
+
+            if (currentLevel >= levels.Count)
             {
                 Debug.Log("All levels completed!");
             }
+
         }
 
         public void Init()
@@ -41,11 +49,38 @@ namespace IsmaLB.Levels
         }
         private void ResetLevels()
         {
-            foreach (LevelSO level in levels)
+            RandomizeNodes();
+            // assign levels
+            for (int i = 0; i < levels.Count; i++)
             {
-                level.SetState(LevelState.Locked);
+                LevelSO level = levels[i];
+                EnergyNodeSO node = orderedNodes[i];
+                node.level = level;
+                node.SetState(LevelState.Locked);
             }
-            levels[0].SetState(LevelState.Unlocked);
+            // unlock the first node
+            orderedNodes[0].SetState(LevelState.Unlocked);
+        }
+
+        private void RandomizeNodes()
+        {
+            orderedNodes = nodes.GetRange(0, keepOrderUntilIndex);
+            // randomize remaining nodes
+            List<EnergyNodeSO> randomNodes = nodes.GetRange(keepOrderUntilIndex, nodes.Count - keepOrderUntilIndex);
+            while (randomNodes.Count > 0)
+            {
+                int randomIndex = Random.Range(0, randomNodes.Count - 1);
+                orderedNodes.Add(randomNodes[randomIndex]);
+                randomNodes.RemoveAt(randomIndex);
+            }
+        }
+
+        private void SetLevelState(int index, LevelState state)
+        {
+            if (0 <= index && index < orderedNodes.Count)
+            {
+                orderedNodes[index].SetState(state);
+            }
         }
     }
 }
