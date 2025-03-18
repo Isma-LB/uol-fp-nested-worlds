@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using IsmaLB.Input;
 using UnityEngine;
 
@@ -10,6 +7,7 @@ namespace IsmaLB.Puzzles
     {
         [SerializeField] LayerMask dragLayerMask;
         [SerializeField] Camera cam;
+        [SerializeField, Min(0)] int dragMarginInPixels = 32;
         [SerializeField] InputReader inputReader;
         DraggableItem draggableItem;
         Vector2 pointerPos;
@@ -51,13 +49,22 @@ namespace IsmaLB.Puzzles
         }
         void Drag()
         {
-            Vector3 mousePos = cam.ScreenToWorldPoint(pointerPos);
+            Vector2 screenPos = LimitScreenPoint(pointerPos, cam.pixelWidth, cam.pixelHeight, dragMarginInPixels);
+            Vector3 mousePos = cam.ScreenToWorldPoint(screenPos);
             mousePos.z = draggableItem.transform.position.z;
             draggableItem.transform.position = mousePos;
         }
         void Drop()
         {
             draggableItem = null;
+        }
+        Vector2 LimitScreenPoint(Vector3 pos, int width, int height, int margin = 0)
+        {
+            if (pos.x >= width - margin) pos.x = width - 1 - margin;
+            else if (pos.x < 0 + margin) pos.x = 0 + margin;
+            if (pos.y >= height - margin) pos.y = height - 1 - margin;
+            else if (pos.y < 0 + margin) pos.y = 0 + margin;
+            return pos;
         }
         // Input callbacks
         private void OnGrabPressed() => AttemptDrag();
