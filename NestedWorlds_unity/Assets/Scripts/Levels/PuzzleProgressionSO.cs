@@ -1,4 +1,3 @@
-// using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,7 +9,7 @@ namespace IsmaLB.Levels
 
         [SerializeField] List<LevelSO> levels;
         [SerializeField] List<EnergyNodeSO> nodes;
-        [SerializeField] List<EnergyNodeSO> orderedNodes;
+        public List<EnergyNodeSO> orderedNodes { get; private set; } = new();
         [SerializeField] int keepOrderUntilIndex = 2;
         [Header("Listens on")]
         [SerializeField] LevelEventSO onLevelCompleted;
@@ -18,7 +17,7 @@ namespace IsmaLB.Levels
 
         void OnValidate()
         {
-            if (levels.Count <= nodes.Count)
+            if (levels.Count > nodes.Count)
             {
                 Debug.LogWarning("Please ensure there are as many nodes as levels");
             }
