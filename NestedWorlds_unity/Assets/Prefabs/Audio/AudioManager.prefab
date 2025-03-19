@@ -126,6 +126,7 @@ Transform:
   m_Children:
   - {fileID: 6876335046352994513}
   - {fileID: 3205680990961266147}
+  - {fileID: 9196660729552009979}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3564447629531870555
@@ -149,3 +150,53 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: f9bdff3d2e6cf2d8ebb655770753b1b2, type: 3}
   poolSize: 10
   sfxPrefab: {fileID: 4423407438591400510, guid: f809b745a85adb10483cfe8b70c74ffe, type: 3}
+--- !u!1 &8250985758224562719
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9196660729552009979}
+  - component: {fileID: 6475370301824295709}
+  m_Layer: 0
+  m_Name: TransitionSoundEffects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9196660729552009979
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8250985758224562719}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8769912359244704284}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6475370301824295709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8250985758224562719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07befa937482505a48735431406e264c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzleInSFX: {fileID: 8300000, guid: 281f43f821185158f90e12e65be7c987, type: 3}
+  puzzleOutSFX: {fileID: 8300000, guid: 3865d635c07933d858edc8d8db64f54f, type: 3}
+  planetChangedSFX: {fileID: 6418180475301049370, guid: 36084c116c947aae0bcf6a9f662e692b, type: 2}
+  loadTransitionEvent: {fileID: 11400000, guid: 5aeb911bec150a0b2a9b578d9eeab2ba, type: 2}
+  unloadTransitionEvent: {fileID: 11400000, guid: 2f17f5346a7282e14bfab087e9a6d3f0, type: 2}
+  planetChangedEvent: {fileID: 11400000, guid: 5b3f3b9d2dff46e4f9206b812abab5d9, type: 2}
