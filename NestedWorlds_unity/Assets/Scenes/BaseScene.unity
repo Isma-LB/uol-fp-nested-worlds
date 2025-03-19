@@ -438,10 +438,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
@@ -449,7 +453,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 710413556}
     - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 710413557}
+    - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
@@ -457,11 +469,23 @@ PrefabInstance:
       value: Settings
       objectReference: {fileID: 0}
     - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: TriggerSFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: IsmaLB.UI.PauseScreenController, Main
       objectReference: {fileID: 0}
     - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: IsmaLB.Audio.PlaySFX, Main
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -602,6 +626,7 @@ GameObject:
   - component: {fileID: 710413555}
   - component: {fileID: 710413554}
   - component: {fileID: 710413556}
+  - component: {fileID: 710413557}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -692,7 +717,7 @@ CanvasGroup:
   m_GameObject: {fileID: 710413550}
   m_Enabled: 1
   m_Alpha: 0
-  m_Interactable: 1
+  m_Interactable: 0
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!114 &710413556
@@ -710,6 +735,20 @@ MonoBehaviour:
   bgPanel: {fileID: 710413554}
   pausePanel: {fileID: 973770079}
   settingsPanel: {fileID: 1064302579}
+--- !u!114 &710413557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710413550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6171bd30b3d5088a4954c2a3d1380901, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfx: {fileID: 6418180475301049370, guid: 0d057f646aea36804aecf5fde6f100ca, type: 2}
+  playOnAwake: 0
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -881,10 +920,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
@@ -892,7 +935,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 710413556}
     - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 710413557}
+    - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
@@ -900,11 +951,23 @@ PrefabInstance:
       value: Exit
       objectReference: {fileID: 0}
     - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: TriggerSFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: IsmaLB.UI.PauseScreenController, Main
       objectReference: {fileID: 0}
     - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: IsmaLB.Audio.PlaySFX, Main
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1247,6 +1310,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6689391659038806215, guid: abca878af0d4a868989b5051313ff6da, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6935139909123720380, guid: abca878af0d4a868989b5051313ff6da, type: 3}
       propertyPath: m_Name
       value: SettingsPanel
@@ -1496,10 +1563,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
@@ -1507,7 +1578,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 710413556}
     - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 710413557}
+    - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
@@ -1515,11 +1594,23 @@ PrefabInstance:
       value: Resume
       objectReference: {fileID: 0}
     - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: TriggerSFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: IsmaLB.UI.PauseScreenController, Main
       objectReference: {fileID: 0}
     - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: IsmaLB.Audio.PlaySFX, Main
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
