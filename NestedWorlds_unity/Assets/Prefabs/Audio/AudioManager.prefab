@@ -47,52 +47,6 @@ MonoBehaviour:
   outputGroup: {fileID: 7111544724053584466, guid: dacc76f64a265c57dabd7aeb927af536, type: 2}
   fadeIn: {fileID: 11400000, guid: b66588622fcd69e0480ac57e03c998ad, type: 2}
   fadeOut: {fileID: 11400000, guid: aed08d7dbbc89db5bab9580e92e33369, type: 2}
---- !u!1 &5213819695182189931
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8786401108122360884}
-  - component: {fileID: 8564313279614824560}
-  m_Layer: 0
-  m_Name: PuzzleSFX
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8786401108122360884
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5213819695182189931}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8769912359244704284}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8564313279614824560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5213819695182189931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9029f06f23a228e1896529652fcda810, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  puzzleCompletedSFX: {fileID: 8300000, guid: 13a1fea0360575a6eb2f90cf6a7d0695, type: 3}
-  puzzleCompletedEvent: {fileID: 11400000, guid: fa58b38e838f68fa99a3f176aeb99dda, type: 2}
 --- !u!1 &6707692424066942325
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,8 +126,7 @@ Transform:
   m_Children:
   - {fileID: 6876335046352994513}
   - {fileID: 3205680990961266147}
-  - {fileID: 9196660729552009979}
-  - {fileID: 8786401108122360884}
+  - {fileID: 3941714174991371838}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3564447629531870555
@@ -197,7 +150,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: f9bdff3d2e6cf2d8ebb655770753b1b2, type: 3}
   poolSize: 10
   sfxPrefab: {fileID: 4423407438591400510, guid: f809b745a85adb10483cfe8b70c74ffe, type: 3}
---- !u!1 &8250985758224562719
+--- !u!1 &7814870327649554120
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -205,22 +158,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 9196660729552009979}
-  - component: {fileID: 6475370301824295709}
+  - component: {fileID: 3941714174991371838}
+  - component: {fileID: 361050372621277056}
   m_Layer: 0
-  m_Name: TransitionSoundEffects
+  m_Name: EventsSFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &9196660729552009979
+--- !u!4 &3941714174991371838
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8250985758224562719}
+  m_GameObject: {fileID: 7814870327649554120}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -229,21 +182,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8769912359244704284}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6475370301824295709
+--- !u!114 &361050372621277056
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8250985758224562719}
+  m_GameObject: {fileID: 7814870327649554120}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07befa937482505a48735431406e264c, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c7e6d6c146bbfa679349e8415f637cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzleInSFX: {fileID: 8300000, guid: 281f43f821185158f90e12e65be7c987, type: 3}
-  puzzleOutSFX: {fileID: 8300000, guid: 3865d635c07933d858edc8d8db64f54f, type: 3}
-  planetChangedSFX: {fileID: 6418180475301049370, guid: 36084c116c947aae0bcf6a9f662e692b, type: 2}
-  loadTransitionEvent: {fileID: 11400000, guid: 5aeb911bec150a0b2a9b578d9eeab2ba, type: 2}
-  unloadTransitionEvent: {fileID: 11400000, guid: 2f17f5346a7282e14bfab087e9a6d3f0, type: 2}
-  planetChangedEvent: {fileID: 11400000, guid: 5b3f3b9d2dff46e4f9206b812abab5d9, type: 2}
+  test:
+    sfx: {fileID: 0}
+    eventSO: {fileID: 0}
+  soundEffects:
+  - sfx: {fileID: 6418180475301049370, guid: 36084c116c947aae0bcf6a9f662e692b, type: 2}
+    eventSO: {fileID: 11400000, guid: 5b3f3b9d2dff46e4f9206b812abab5d9, type: 2}
+  - sfx: {fileID: 8300000, guid: 281f43f821185158f90e12e65be7c987, type: 3}
+    eventSO: {fileID: 11400000, guid: 5aeb911bec150a0b2a9b578d9eeab2ba, type: 2}
+  - sfx: {fileID: 8300000, guid: 3865d635c07933d858edc8d8db64f54f, type: 3}
+    eventSO: {fileID: 11400000, guid: 2f17f5346a7282e14bfab087e9a6d3f0, type: 2}
+  - sfx: {fileID: 8300000, guid: 13a1fea0360575a6eb2f90cf6a7d0695, type: 3}
+    eventSO: {fileID: 11400000, guid: fa58b38e838f68fa99a3f176aeb99dda, type: 2}

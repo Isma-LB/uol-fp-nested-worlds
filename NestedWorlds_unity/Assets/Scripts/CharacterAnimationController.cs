@@ -18,7 +18,6 @@ namespace IsmaLB
 
             if (speed != 0 && stepsAudioSource.isPlaying == false)
             {
-                Debug.Log("play footsteps");
                 stepsAudioSource.Play();
             }
             else if (speed == 0 && stepsAudioSource.isPlaying)
