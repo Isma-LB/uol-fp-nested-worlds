@@ -7,27 +7,40 @@ namespace IsmaLB.UI
 {
     public class GameUIManager : MonoBehaviour
     {
-        [SerializeField] InputReader inputReader;
+        [Header("Manages:")]
         [SerializeField] PauseScreenController pauseScreenController;
+        [SerializeField] UIPanel explorationUI;
+        [SerializeField] UIPanel puzzleUI;
+        [Header("Listens on:")]
+        [SerializeField] InputReader inputReader;
+        [SerializeField] TransitionEventSO loadPuzzleEvent;
+        [SerializeField] TransitionEventSO unloadPuzzleEvent;
         void OnEnable()
         {
             inputReader.pauseMenuEvent += OpenPauseScreen;
+            loadPuzzleEvent.OnTransitionStarted += explorationUI.Close;
+            loadPuzzleEvent.OnTransitionEnded += puzzleUI.Open;
+            unloadPuzzleEvent.OnTransitionStarted += puzzleUI.Close;
+            unloadPuzzleEvent.OnTransitionEnded += explorationUI.Open;
+
         }
         void OnDisable()
         {
             inputReader.pauseMenuEvent -= OpenPauseScreen;
+            loadPuzzleEvent.OnTransitionStarted -= explorationUI.Close;
+            loadPuzzleEvent.OnTransitionEnded -= puzzleUI.Open;
+            unloadPuzzleEvent.OnTransitionStarted -= puzzleUI.Close;
+            unloadPuzzleEvent.OnTransitionEnded -= explorationUI.Open;
         }
 
-        private void OpenPauseScreen()
+        public void OpenPauseScreen()
         {
             pauseScreenController.Open(OnPauseScreenClose);
             Time.timeScale = 0;
-            // set pause state
         }
         private void OnPauseScreenClose()
         {
             Time.timeScale = 1;
-            // return to previous state
         }
     }
 }
