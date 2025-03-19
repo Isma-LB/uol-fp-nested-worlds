@@ -10,6 +10,7 @@ namespace IsmaLB.UI
         [Header("Manages:")]
         [SerializeField] PauseScreenController pauseScreenController;
         [SerializeField] UIPanel explorationUI;
+        [SerializeField] UIPanel puzzleUI;
         [Header("Listens on:")]
         [SerializeField] InputReader inputReader;
         [SerializeField] TransitionEventSO loadPuzzleEvent;
@@ -17,36 +18,29 @@ namespace IsmaLB.UI
         void OnEnable()
         {
             inputReader.pauseMenuEvent += OpenPauseScreen;
-            loadPuzzleEvent.OnTransitionStarted += EnablePuzzleUI;
-            unloadPuzzleEvent.OnTransitionEnded += EnableExplorationUI;
+            loadPuzzleEvent.OnTransitionStarted += explorationUI.Close;
+            loadPuzzleEvent.OnTransitionEnded += puzzleUI.Open;
+            unloadPuzzleEvent.OnTransitionStarted += puzzleUI.Close;
+            unloadPuzzleEvent.OnTransitionEnded += explorationUI.Open;
 
         }
         void OnDisable()
         {
             inputReader.pauseMenuEvent -= OpenPauseScreen;
-            loadPuzzleEvent.OnTransitionStarted -= EnablePuzzleUI;
-            unloadPuzzleEvent.OnTransitionEnded -= EnableExplorationUI;
-        }
-
-        private void EnablePuzzleUI()
-        {
-            explorationUI.Close();
-        }
-        private void EnableExplorationUI()
-        {
-            explorationUI.Open();
+            loadPuzzleEvent.OnTransitionStarted -= explorationUI.Close;
+            loadPuzzleEvent.OnTransitionEnded -= puzzleUI.Open;
+            unloadPuzzleEvent.OnTransitionStarted -= puzzleUI.Close;
+            unloadPuzzleEvent.OnTransitionEnded -= explorationUI.Open;
         }
 
         public void OpenPauseScreen()
         {
             pauseScreenController.Open(OnPauseScreenClose);
             Time.timeScale = 0;
-            // set pause state
         }
         private void OnPauseScreenClose()
         {
             Time.timeScale = 1;
-            // return to previous state
         }
     }
 }
