@@ -65,6 +65,7 @@ namespace IsmaLB.Planets
                 transitionInProcess = true;
                 Planet targetPlanet = dir == Direction.forwards ? planetsList.NextPlanet : planetsList.PreviousPlanet;
                 player.attractor = targetPlanet.Attractor;
+                planetsList.ChangeCurrentPlanet(targetPlanetIndex);
                 // trigger the transition
                 StartCoroutine(Transition(planetsList.CurrentPlanet, targetPlanet));
                 /// if the transition is backwards...
@@ -73,7 +74,6 @@ namespace IsmaLB.Planets
                     player.Rigidbody.AddForce(player.transform.up * playerJumpOnForwardsTransition, ForceMode.Impulse);
                 }
 
-                planetsList.ChangeCurrentPlanet(targetPlanetIndex);
             }
         }
 
