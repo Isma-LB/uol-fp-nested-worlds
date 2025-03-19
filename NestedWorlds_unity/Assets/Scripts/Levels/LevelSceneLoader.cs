@@ -29,7 +29,7 @@ namespace IsmaLB.Levels
         }
         void OnDisable()
         {
-            quitPuzzleEvent.OnEvent += HandlePuzzleQuit;
+            quitPuzzleEvent.OnEvent -= HandlePuzzleQuit;
             puzzleSolvedEvent.OnEvent -= HandleLevelCompleted;
             restartPuzzleEvent.OnEvent -= HandlePuzzleRestart;
             loadLevelEvent.onLevelEvent -= LoadLevel;
