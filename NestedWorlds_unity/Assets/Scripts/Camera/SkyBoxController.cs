@@ -12,12 +12,12 @@ namespace IsmaLB.Cameras
         void OnEnable()
         {
             if (planetChangedEvent)
-                planetChangedEvent.OnEvent += HandlePlanetChange;
+                planetChangedEvent.OnPlanetEvent += HandlePlanetChange;
         }
         void OnDisable()
         {
             if (planetChangedEvent)
-                planetChangedEvent.OnEvent -= HandlePlanetChange;
+                planetChangedEvent.OnPlanetEvent -= HandlePlanetChange;
         }
 
         private void HandlePlanetChange(Vector3 position)

@@ -22,16 +22,16 @@ namespace IsmaLB.Levels
 
         void OnEnable()
         {
-            quitPuzzleEvent.onEvent += HandlePuzzleQuit;
-            puzzleSolvedEvent.onEvent += HandleLevelCompleted;
-            restartPuzzleEvent.onEvent += HandlePuzzleRestart;
+            quitPuzzleEvent.OnEvent += HandlePuzzleQuit;
+            puzzleSolvedEvent.OnEvent += HandleLevelCompleted;
+            restartPuzzleEvent.OnEvent += HandlePuzzleRestart;
             loadLevelEvent.onLevelEvent += LoadLevel;
         }
         void OnDisable()
         {
-            quitPuzzleEvent.onEvent += HandlePuzzleQuit;
-            puzzleSolvedEvent.onEvent -= HandleLevelCompleted;
-            restartPuzzleEvent.onEvent -= HandlePuzzleRestart;
+            quitPuzzleEvent.OnEvent += HandlePuzzleQuit;
+            puzzleSolvedEvent.OnEvent -= HandleLevelCompleted;
+            restartPuzzleEvent.OnEvent -= HandlePuzzleRestart;
             loadLevelEvent.onLevelEvent -= LoadLevel;
         }
 

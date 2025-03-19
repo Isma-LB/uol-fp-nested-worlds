@@ -528,6 +528,7 @@ GameObject:
   - component: {fileID: 3862816875037960999}
   - component: {fileID: 2779059073072592873}
   - component: {fileID: 7560275944445163245}
+  - component: {fileID: 3827912650396736245}
   m_Layer: 5
   m_Name: SettingsPanel
   m_TagString: Untagged
@@ -635,6 +636,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screenUIPanel: {fileID: 2779059073072592873}
+--- !u!114 &3827912650396736245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6935139909123720380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6171bd30b3d5088a4954c2a3d1380901, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfx: {fileID: 6418180475301049370, guid: 0d057f646aea36804aecf5fde6f100ca, type: 2}
+  playOnAwake: 0
 --- !u!1001 &5585266093707808095
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -771,10 +786,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
@@ -782,7 +801,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2779059073072592873}
     - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 3827912650396736245}
+    - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
@@ -790,11 +817,23 @@ PrefabInstance:
       value: Close
       objectReference: {fileID: 0}
     - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: TriggerSFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: IsmaLB.UI.UIPanel, Main
       objectReference: {fileID: 0}
     - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: IsmaLB.Audio.PlaySFX, Main
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701989550986151950, guid: 26c41e54ebf048c8897bb646972429d1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []

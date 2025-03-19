@@ -4,13 +4,11 @@ using UnityEngine.Events;
 namespace IsmaLB
 {
     [CreateAssetMenu(fileName = "PuzzleEventSO", menuName = "Scriptable Objects/PuzzleEventSO")]
-    public class PuzzleEventSO : ScriptableObject
+    public class PuzzleEventSO : EventSO
     {
-        public event UnityAction onEvent;
         public void Raise()
         {
-            onEvent?.Invoke();
+            base.RaiseOnEvent();
         }
-        public bool HasListeners => onEvent != null;
     }
 }
