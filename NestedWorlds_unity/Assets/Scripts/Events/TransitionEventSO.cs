@@ -4,7 +4,7 @@ using UnityEngine.Events;
 namespace IsmaLB
 {
     [CreateAssetMenu(fileName = "TransitionEventSO", menuName = "Scriptable Objects/TransitionEventSO")]
-    public class TransitionEventSO : ScriptableObject
+    public class TransitionEventSO : EventSO
     {
         [SerializeField, Min(0)] float duration;
         public event UnityAction OnTransitionStarted;
@@ -13,6 +13,7 @@ namespace IsmaLB
 
         public void RaiseStartTransition()
         {
+            base.RaiseOnEvent();
             OnTransitionStarted?.Invoke();
         }
         public void RaiseEndTransition()
