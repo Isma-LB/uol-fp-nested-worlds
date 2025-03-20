@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 794d49367ac7d7e70bf0623b4e570594, type: 3}
+  m_Name: PuzzleProgression_test
+  m_EditorClassIdentifier: 
+  levels:
+  - {fileID: 11400000, guid: 3ffd96ad2a31e41b8803e39977295bbe, type: 2}
+  nodes:
+  - {fileID: 11400000, guid: 3a54630176f4b6bd391ad7f5352a0b1a, type: 2}
+  keepOrderUntilIndex: 1
+  onLevelCompleted: {fileID: 11400000, guid: 656cdab1a9220722a82311346768198d, type: 2}

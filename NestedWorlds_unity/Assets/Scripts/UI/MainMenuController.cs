@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using IsmaLB.Gameplay;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,7 +17,14 @@ namespace IsmaLB.UI
         void Start()
         {
             ActivatePanels();
-            mainPanel.Open();
+            if (IsGameCompleted())
+            {
+                StartCoroutine(ShowCredits());
+            }
+            else
+            {
+                mainPanel.Open();
+            }
             // trigger main menu music
             AudioManager.QueueMusicTrack(MusicTrackType.Menu);
         }
@@ -51,11 +59,25 @@ namespace IsmaLB.UI
             yield return storyManager.StartStory();
             sceneLoad.allowSceneActivation = true;
         }
+        private IEnumerator ShowCredits()
+        {
+            yield return storyManager.ShowStoryEnd();
+            OpenCredits();
+        }
         private void ActivatePanels()
         {
             mainPanel.gameObject.SetActive(true);
             settingsPanel.gameObject.SetActive(true);
             creditsPanel.gameObject.SetActive(true);
+        }
+        private bool IsGameCompleted()
+        {
+            if (PlayerPrefs.GetInt(GameManager.GAME_COMPLETED_KEY, 0) != 0)
+            {
+                PlayerPrefs.DeleteKey(GameManager.GAME_COMPLETED_KEY);
+                return true;
+            }
+            return false;
         }
     }
 }

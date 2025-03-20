@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace IsmaLB.Levels
 {
@@ -14,7 +15,7 @@ namespace IsmaLB.Levels
         [Header("Listens on")]
         [SerializeField] LevelEventSO onLevelCompleted;
         int currentLevel = 0;
-
+        public event UnityAction OnProgressionCompleted;
         void OnValidate()
         {
             if (levels.Count > nodes.Count)
@@ -32,9 +33,8 @@ namespace IsmaLB.Levels
 
             if (currentLevel >= levels.Count)
             {
-                Debug.Log("All levels completed!");
+                OnProgressionCompleted?.Invoke();
             }
-
         }
 
         public void Init()
