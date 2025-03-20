@@ -48,10 +48,12 @@ namespace IsmaLB.UI
         {
             pauseScreenController.Open(OnPauseScreenClose);
             Time.timeScale = 0;
+            inputReader.PauseInput();
         }
         private void OnPauseScreenClose()
         {
             Time.timeScale = 1;
+            inputReader.RestoreLastInputMode();
         }
     }
 }
