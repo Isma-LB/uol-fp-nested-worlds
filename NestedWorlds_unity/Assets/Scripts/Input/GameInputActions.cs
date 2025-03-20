@@ -379,6 +379,15 @@ namespace IsmaLB.Input
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""5bc9e50b-9377-4010-b4c4-83feac65b988"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -473,7 +482,7 @@ namespace IsmaLB.Input
                 {
                     ""name"": """",
                     ""id"": ""89540582-f6d4-423c-b589-689b13aab105"",
-                    ""path"": ""<Keyboard>/escape"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -489,6 +498,28 @@ namespace IsmaLB.Input
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Restart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""aef23c86-27a4-44d4-9969-1497d5547f97"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fb965bc8-3c57-4567-91d0-12bfb49bdb91"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1099,6 +1130,7 @@ namespace IsmaLB.Input
             m_Puzzle_Point = m_Puzzle.FindAction("Point", throwIfNotFound: true);
             m_Puzzle_Quit = m_Puzzle.FindAction("Quit", throwIfNotFound: true);
             m_Puzzle_Restart = m_Puzzle.FindAction("Restart", throwIfNotFound: true);
+            m_Puzzle_Pause = m_Puzzle.FindAction("Pause", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1269,6 +1301,7 @@ namespace IsmaLB.Input
         private readonly InputAction m_Puzzle_Point;
         private readonly InputAction m_Puzzle_Quit;
         private readonly InputAction m_Puzzle_Restart;
+        private readonly InputAction m_Puzzle_Pause;
         public struct PuzzleActions
         {
             private @GameInputActions m_Wrapper;
@@ -1277,6 +1310,7 @@ namespace IsmaLB.Input
             public InputAction @Point => m_Wrapper.m_Puzzle_Point;
             public InputAction @Quit => m_Wrapper.m_Puzzle_Quit;
             public InputAction @Restart => m_Wrapper.m_Puzzle_Restart;
+            public InputAction @Pause => m_Wrapper.m_Puzzle_Pause;
             public InputActionMap Get() { return m_Wrapper.m_Puzzle; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -1298,6 +1332,9 @@ namespace IsmaLB.Input
                 @Restart.started += instance.OnRestart;
                 @Restart.performed += instance.OnRestart;
                 @Restart.canceled += instance.OnRestart;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
 
             private void UnregisterCallbacks(IPuzzleActions instance)
@@ -1314,6 +1351,9 @@ namespace IsmaLB.Input
                 @Restart.started -= instance.OnRestart;
                 @Restart.performed -= instance.OnRestart;
                 @Restart.canceled -= instance.OnRestart;
+                @Pause.started -= instance.OnPause;
+                @Pause.performed -= instance.OnPause;
+                @Pause.canceled -= instance.OnPause;
             }
 
             public void RemoveCallbacks(IPuzzleActions instance)
@@ -1509,6 +1549,7 @@ namespace IsmaLB.Input
             void OnPoint(InputAction.CallbackContext context);
             void OnQuit(InputAction.CallbackContext context);
             void OnRestart(InputAction.CallbackContext context);
+            void OnPause(InputAction.CallbackContext context);
         }
         public interface IUIActions
         {

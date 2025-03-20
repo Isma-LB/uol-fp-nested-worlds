@@ -17,7 +17,7 @@ namespace IsmaLB.UI
         [SerializeField] TransitionEventSO unloadPuzzleEvent;
         void OnEnable()
         {
-            inputReader.pauseMenuEvent += OpenPauseScreen;
+            inputReader.pauseMenuEvent += TogglePauseScreen;
             loadPuzzleEvent.OnTransitionStarted += explorationUI.Close;
             loadPuzzleEvent.OnTransitionEnded += puzzleUI.Open;
             unloadPuzzleEvent.OnTransitionStarted += puzzleUI.Close;
@@ -26,13 +26,24 @@ namespace IsmaLB.UI
         }
         void OnDisable()
         {
-            inputReader.pauseMenuEvent -= OpenPauseScreen;
+            inputReader.pauseMenuEvent -= TogglePauseScreen;
             loadPuzzleEvent.OnTransitionStarted -= explorationUI.Close;
             loadPuzzleEvent.OnTransitionEnded -= puzzleUI.Open;
             unloadPuzzleEvent.OnTransitionStarted -= puzzleUI.Close;
             unloadPuzzleEvent.OnTransitionEnded -= explorationUI.Open;
         }
-
+        void TogglePauseScreen()
+        {
+            if (pauseScreenController.IsOpen)
+            {
+                // trigger the resume button to close the pause screen
+                pauseScreenController.Resume();
+            }
+            else
+            {
+                OpenPauseScreen();
+            }
+        }
         public void OpenPauseScreen()
         {
             pauseScreenController.Open(OnPauseScreenClose);
