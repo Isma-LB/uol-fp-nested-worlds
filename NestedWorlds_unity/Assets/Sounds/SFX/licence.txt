@@ -1,0 +1,13 @@
+200 Free SFX by Kronbites - released under CC0 1.0
+Available at: https://kronbits.itch.io/freesfx
+├── Retro Charge 13.wav
+├── Retro Charge Off StereoUP 02.wav
+├── Retro Charge StereoUP 12.wav
+├── Retro Cinematic Short 02.wav
+├── Retro Event Acute 08.wav
+├── Retro FootStep Grass 01.wav
+└── Retro Jump Simple A 01.wav
+
+Free Natural UI SFX Pack by cicifyre - released under CC0 1.0
+Available at: https://cicifyre.itch.io/free-natural-sfx-pack
+└── 01-mouse_click.ogg
