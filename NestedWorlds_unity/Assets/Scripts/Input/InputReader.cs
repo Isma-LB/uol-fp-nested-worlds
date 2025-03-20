@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 namespace IsmaLB.Input
 {
     [CreateAssetMenu(fileName = "Input", menuName = "Scriptable Objects/InputReader")]
-    public class InputReader : ScriptableObject, GameInputActions.IPlayerActions, GameInputActions.IPuzzleActions
+    public class InputReader : ScriptableObject, GameInputActions.IPlayerActions, GameInputActions.IPuzzleActions, GameInputActions.IPauseActions
     {
         // Player actions
         public UnityAction interactEvent;
@@ -22,11 +22,13 @@ namespace IsmaLB.Input
         public UnityAction restartEvent;
         public UnityAction quitEvent;
 
-        // menu actions
+        // pause actions
         public UnityAction pauseMenuEvent;
 
         // internal input
         GameInputActions gameInput;
+
+        bool isExploration = true;
 
         void OnEnable()
         {
@@ -35,6 +37,7 @@ namespace IsmaLB.Input
                 gameInput = new GameInputActions();
                 gameInput.Player.SetCallbacks(this);
                 gameInput.Puzzle.SetCallbacks(this);
+                gameInput.Pause.SetCallbacks(this);
                 EnableExplorationInput();
             }
         }
@@ -42,18 +45,33 @@ namespace IsmaLB.Input
         {
             DisableAllInput();
         }
+        public void PauseInput()
+        {
+            gameInput.Player.Disable();
+            gameInput.Puzzle.Disable();
+        }
+        public void RestoreLastInputMode()
+        {
+            if (isExploration) EnableExplorationInput();
+            else EnablePuzzleInput();
+        }
         public void DisableAllInput()
         {
+            gameInput.Pause.Disable();
             gameInput.Player.Disable();
             gameInput.Puzzle.Disable();
         }
         public void EnableExplorationInput()
         {
+            isExploration = true;
+            gameInput.Pause.Enable();
             gameInput.Player.Enable();
             gameInput.Puzzle.Disable();
         }
         public void EnablePuzzleInput()
         {
+            isExploration = false;
+            gameInput.Pause.Enable();
             gameInput.Player.Disable();
             gameInput.Puzzle.Enable();
         }

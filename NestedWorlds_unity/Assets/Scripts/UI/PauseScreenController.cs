@@ -9,6 +9,7 @@ namespace IsmaLB.UI
         [SerializeField] UIPanel bgPanel;
         [SerializeField] UIPanel pausePanel;
         [SerializeField] SettingsScreenController settingsPanel;
+        public bool IsOpen => bgPanel.IsOpen;
 
         // pause screen buttons
         public void Resume()

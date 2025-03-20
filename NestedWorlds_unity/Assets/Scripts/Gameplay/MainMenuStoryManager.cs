@@ -24,6 +24,7 @@ namespace IsmaLB
 
         void OnEnable()
         {
+            inputReader.EnableExplorationInput();
             inputReader.interactEvent += OnInteractInput;
         }
         void OnDisable()
