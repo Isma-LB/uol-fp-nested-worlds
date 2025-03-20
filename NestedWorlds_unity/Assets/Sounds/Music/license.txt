@@ -1,3 +1,8 @@
-'Sentinel' by Scott Buckley - released under CC-BY 4.0. www.scottbuckley.com.au
-'This Too Shall Pass' by Scott Buckley - released under CC-BY 4.0. www.scottbuckley.com.au
+'Sentinel' by Scott Buckley - released under CC-BY 4.0.
+Available at: www.scottbuckley.com.au
+└── PuzzleLoop.mp3
 
+'This Too Shall Pass' by Scott Buckley - released under CC-BY 4.0.
+Available at: www.scottbuckley.com.au
+├── GameLoop.mp3 
+└── Menu.mp3 

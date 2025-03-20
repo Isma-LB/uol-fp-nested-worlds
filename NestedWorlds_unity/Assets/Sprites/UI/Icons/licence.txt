@@ -1,0 +1,9 @@
+RemixIcons by Remix Design - released under Apache License 2.0
+Available at: https://remixicon.com/
+├── arrow-up-wide-fill.png
+├── circle-line.png
+├── corner-right-down-fill.png
+├── lock-fill.png
+├── logout-circle-line.png
+├── pause-mini-fill.png
+└── reset-left-line.png

@@ -835,7 +835,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 411335626853100379, guid: a2447493b29abf2729c4c036f76c4f3c, type: 3}
       propertyPath: m_Name
-      value: Audio (4)
+      value: UI
       objectReference: {fileID: 0}
     - target: {fileID: 4235208649995635392, guid: a2447493b29abf2729c4c036f76c4f3c, type: 3}
       propertyPath: m_Pivot.x
@@ -917,6 +917,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4840223766888949455, guid: a2447493b29abf2729c4c036f76c4f3c, type: 3}
+      propertyPath: m_text
+      value: UI
+      objectReference: {fileID: 0}
     - target: {fileID: 6306404737452277917, guid: a2447493b29abf2729c4c036f76c4f3c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -940,6 +944,33 @@ PrefabInstance:
     - target: {fileID: 6306404737452277917, guid: a2447493b29abf2729c4c036f76c4f3c, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8037751456990762755, guid: a2447493b29abf2729c4c036f76c4f3c, type: 3}
+      propertyPath: m_text
+      value: 'Free Hologram Interface by Wenrexa
+
+        released under CC0 1.0
+
+        https://wenrexa.itch.io/holoui
+
+
+        RemixIcon
+        by Remix Design
+
+        released under Apache License 2.0
+
+        https://remixicon.com/
+
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8037751456990762755, guid: a2447493b29abf2729c4c036f76c4f3c, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 8037751456990762755, guid: a2447493b29abf2729c4c036f76c4f3c, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2052,7 +2083,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 411335626853100379, guid: a2447493b29abf2729c4c036f76c4f3c, type: 3}
       propertyPath: m_Name
-      value: Audio (1)
+      value: Sprites
       objectReference: {fileID: 0}
     - target: {fileID: 4235208649995635392, guid: a2447493b29abf2729c4c036f76c4f3c, type: 3}
       propertyPath: m_Pivot.x
@@ -2134,6 +2165,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4840223766888949455, guid: a2447493b29abf2729c4c036f76c4f3c, type: 3}
+      propertyPath: m_text
+      value: 2D Sprites
+      objectReference: {fileID: 0}
     - target: {fileID: 6306404737452277917, guid: a2447493b29abf2729c4c036f76c4f3c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2157,6 +2192,20 @@ PrefabInstance:
     - target: {fileID: 6306404737452277917, guid: a2447493b29abf2729c4c036f76c4f3c, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8037751456990762755, guid: a2447493b29abf2729c4c036f76c4f3c, type: 3}
+      propertyPath: m_text
+      value: 'Interface UI KIT #4 by Wenrexa
+
+        released under CC0 1.0
+
+        https://wenrexa.itch.io/ui-different02
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8037751456990762755, guid: a2447493b29abf2729c4c036f76c4f3c, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 256
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2544,7 +2593,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 411335626853100379, guid: a2447493b29abf2729c4c036f76c4f3c, type: 3}
       propertyPath: m_Name
-      value: Audio (3)
+      value: SFX
       objectReference: {fileID: 0}
     - target: {fileID: 4235208649995635392, guid: a2447493b29abf2729c4c036f76c4f3c, type: 3}
       propertyPath: m_Pivot.x
@@ -2626,6 +2675,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4840223766888949455, guid: a2447493b29abf2729c4c036f76c4f3c, type: 3}
+      propertyPath: m_text
+      value: 'Audio Effects
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 6306404737452277917, guid: a2447493b29abf2729c4c036f76c4f3c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2645,6 +2700,32 @@ PrefabInstance:
     - target: {fileID: 6306404737452277917, guid: a2447493b29abf2729c4c036f76c4f3c, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8037751456990762755, guid: a2447493b29abf2729c4c036f76c4f3c, type: 3}
+      propertyPath: m_text
+      value: '200 Free SFX by Kronbites
+
+        released under CC0 1.0
+
+        https://kronbits.itch.io/freesfx
+
+
+        Free
+        Natural UI SFX Pack by cicifyre
+
+        released under CC0 1.0
+
+        https://cicifyre.itch.io/
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8037751456990762755, guid: a2447493b29abf2729c4c036f76c4f3c, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 8037751456990762755, guid: a2447493b29abf2729c4c036f76c4f3c, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14090,7 +14171,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 67.899994, y: 11}
+  m_AnchoredPosition: {x: 67.89999, y: 11}
   m_SizeDelta: {x: 86, y: 86}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1629644771
@@ -14465,7 +14546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 411335626853100379, guid: a2447493b29abf2729c4c036f76c4f3c, type: 3}
       propertyPath: m_Name
-      value: Audio (5)
+      value: 3dModels
       objectReference: {fileID: 0}
     - target: {fileID: 4235208649995635392, guid: a2447493b29abf2729c4c036f76c4f3c, type: 3}
       propertyPath: m_Pivot.x
@@ -14547,6 +14628,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4840223766888949455, guid: a2447493b29abf2729c4c036f76c4f3c, type: 3}
+      propertyPath: m_text
+      value: 3D models
+      objectReference: {fileID: 0}
     - target: {fileID: 6306404737452277917, guid: a2447493b29abf2729c4c036f76c4f3c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -14570,6 +14655,19 @@ PrefabInstance:
     - target: {fileID: 6306404737452277917, guid: a2447493b29abf2729c4c036f76c4f3c, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8037751456990762755, guid: a2447493b29abf2729c4c036f76c4f3c, type: 3}
+      propertyPath: m_text
+      value: "RPG Character Pack by Quaternius\nreleased under CC0 1.0\nhttps://quaternius.com/packs/rpgcharacters.html
+        \n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8037751456990762755, guid: a2447493b29abf2729c4c036f76c4f3c, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 8037751456990762755, guid: a2447493b29abf2729c4c036f76c4f3c, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
