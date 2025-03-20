@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 243dd293a0943033c815db30d242d28b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzleProgression: {fileID: 11400000, guid: 33ab077fe1e308a2f9868b0a17b3cb3d, type: 2}
+  puzzleProgression: {fileID: 11400000, guid: c169c2fcf9067d00ab54690ec4d03292, type: 2}
 --- !u!4 &292088299
 Transform:
   m_ObjectHideFlags: 0
