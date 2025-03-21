@@ -9,8 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7351423541995099797}
-  - component: {fileID: 7030580214352214701}
-  - component: {fileID: 4307347755340070231}
+  - component: {fileID: 3748745855009029811}
   - component: {fileID: 4465457584022086659}
   m_Layer: 0
   m_Name: TutorialStep
@@ -35,47 +34,18 @@ Transform:
   - {fileID: 3059559174857838698}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 24.139, y: -25.561, z: -51.561}
---- !u!54 &7030580214352214701
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1571721530652359798}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
---- !u!114 &4307347755340070231
+--- !u!114 &3748745855009029811
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1571721530652359798}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ed2c145da6a3fe23ab8c56277c06163, type: 3}
+  m_Script: {fileID: 11500000, guid: b154fb0c8bf27b33e9c31d222ae1af29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  autoAlignRotation: 1
-  alignRotationSpeed: 0.1
   attractor: {fileID: 0}
 --- !u!114 &4465457584022086659
 MonoBehaviour:
