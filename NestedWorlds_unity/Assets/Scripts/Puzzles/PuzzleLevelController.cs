@@ -15,8 +15,10 @@ namespace IsmaLB.Puzzles
         ParticlesTarget[] targets;
         bool isCompleted = false;
         // Start is called before the first frame update
-        void Start()
+        IEnumerator Start()
         {
+            // wait one frame to ensure other levels targets are unloaded
+            yield return null;
             targets = FindObjectsByType<ParticlesTarget>(FindObjectsSortMode.None);
             inputReader.EnablePuzzleInput();
         }
@@ -54,6 +56,8 @@ namespace IsmaLB.Puzzles
 
         float GetCompletionScore()
         {
+            if (targets == null) return 0;
+
             float total = 0;
             for (int i = 0; i < targets.Length; i++)
             {
