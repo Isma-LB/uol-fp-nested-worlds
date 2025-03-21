@@ -19,7 +19,7 @@ namespace IsmaLB.Planets
         public Planet PreviousPlanet { get; private set; }
         public Planet CurrentPlanet { get; private set; }
         public Planet NextPlanet { get; private set; }
-        int currentPlanetIndex = 0;
+        int currentPlanetIndex = -1;
         public int CurrentIndex { get => currentPlanetIndex; }
 
         void OnValidate()

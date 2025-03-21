@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System;
 using IsmaLB.Planets;
+using System.Collections;
 
 namespace IsmaLB
 {
@@ -24,8 +25,10 @@ namespace IsmaLB
         {
             onPlanetChange.OnEvent -= UpdateGraphics;
         }
-        void Start()
+        IEnumerator Start()
         {
+            UpdateGraphics();
+            yield return null;
             UpdateGraphics();
         }
 
