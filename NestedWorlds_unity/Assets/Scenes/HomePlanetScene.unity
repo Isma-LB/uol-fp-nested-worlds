@@ -223,19 +223,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1656724207977448117, guid: 01774d4b0e8d04df6ba128548803c6ef, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7564313
+      value: 0.75662655
       objectReference: {fileID: 0}
     - target: {fileID: 1656724207977448117, guid: 01774d4b0e8d04df6ba128548803c6ef, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.35148004
+      value: 0.35141033
       objectReference: {fileID: 0}
     - target: {fileID: 1656724207977448117, guid: 01774d4b0e8d04df6ba128548803c6ef, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.05351569
+      value: -0.05359411
       objectReference: {fileID: 0}
     - target: {fileID: 1656724207977448117, guid: 01774d4b0e8d04df6ba128548803c6ef, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.54900795
+      value: -0.54877573
       objectReference: {fileID: 0}
     - target: {fileID: 1656724207977448117, guid: 01774d4b0e8d04df6ba128548803c6ef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -261,6 +261,10 @@ PrefabInstance:
       propertyPath: puzzleLevel
       value: 
       objectReference: {fileID: 11400000, guid: c0acdc961f9d249809297219a0e92688, type: 2}
+    - target: {fileID: 4186074195391939517, guid: 01774d4b0e8d04df6ba128548803c6ef, type: 3}
+      propertyPath: attractor
+      value: 
+      objectReference: {fileID: 727810717}
     - target: {fileID: 4485739371741981041, guid: 01774d4b0e8d04df6ba128548803c6ef, type: 3}
       propertyPath: attractor
       value: 
@@ -546,6 +550,10 @@ PrefabInstance:
       propertyPath: puzzleLevel
       value: 
       objectReference: {fileID: 11400000, guid: d4c6199ad3f970295959acfceb0ff2d4, type: 2}
+    - target: {fileID: 4186074195391939517, guid: 01774d4b0e8d04df6ba128548803c6ef, type: 3}
+      propertyPath: attractor
+      value: 
+      objectReference: {fileID: 727810717}
     - target: {fileID: 4485739371741981041, guid: 01774d4b0e8d04df6ba128548803c6ef, type: 3}
       propertyPath: attractor
       value: 
@@ -608,6 +616,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -51.561
       objectReference: {fileID: 0}
+    - target: {fileID: 6238377750021742243, guid: 04afc54055128f37bad7659605c27b58, type: 3}
+      propertyPath: attractor
+      value: 
+      objectReference: {fileID: 727810717}
     - target: {fileID: 8600454285830200422, guid: 04afc54055128f37bad7659605c27b58, type: 3}
       propertyPath: m_Name
       value: TutorialStep-Grow
@@ -629,6 +641,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TutorialStep-Move
       objectReference: {fileID: 0}
+    - target: {fileID: 3748745855009029811, guid: a26d1b98442c80d6dbb292368c322648, type: 3}
+      propertyPath: attractor
+      value: 
+      objectReference: {fileID: 727810717}
     - target: {fileID: 4307347755340070231, guid: a26d1b98442c80d6dbb292368c322648, type: 3}
       propertyPath: attractor
       value: 
@@ -768,9 +784,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ed2c145da6a3fe23ab8c56277c06163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attractor: {fileID: 727810717}
   autoAlignRotation: 0
   alignRotationSpeed: 0.1
-  attractor: {fileID: 727810717}
 --- !u!54 &7647048821414947962
 Rigidbody:
   m_ObjectHideFlags: 0

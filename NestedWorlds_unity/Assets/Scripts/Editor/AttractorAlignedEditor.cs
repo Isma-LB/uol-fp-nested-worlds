@@ -3,17 +3,16 @@ using UnityEditor;
 
 namespace IsmaLB.Editors
 {
-    [CustomEditor(typeof(GravityBody))]
-    public class GravityBodyEditor : Editor
+    [CustomEditor(typeof(AttractorAligned), true)]
+    public class AttractorAlignedEditor : Editor
     {
         public override void OnInspectorGUI()
         {
             DrawDefaultInspector();
-            GravityBody body = (GravityBody)target;
+            AttractorAligned body = (AttractorAligned)target;
             if (body.attractor && GUILayout.Button("Align with attractor"))
             {
-                Rigidbody rb = body.GetComponent<Rigidbody>();
-                rb.transform.rotation = body.attractor.Align(rb, 1);
+                body.transform.rotation = body.attractor.Align(body.transform);
             }
         }
     }

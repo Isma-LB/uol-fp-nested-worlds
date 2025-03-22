@@ -17,5 +17,11 @@ namespace IsmaLB
             targetRotation = Quaternion.Slerp(rb.rotation, targetRotation, slerpSpeed);
             return targetRotation;
         }
+        public Quaternion Align(Transform body)
+        {
+            Vector3 gravityUp = (body.position - transform.position).normalized;
+            Quaternion targetRotation = Quaternion.FromToRotation(body.up, gravityUp) * body.rotation;
+            return targetRotation;
+        }
     }
 }

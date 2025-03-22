@@ -4,11 +4,10 @@ using UnityEngine;
 namespace IsmaLB
 {
     [RequireComponent(typeof(Rigidbody))]
-    public class GravityBody : MonoBehaviour
+    public class GravityBody : AttractorAligned
     {
         [SerializeField] bool autoAlignRotation = true;
         [SerializeField, Range(0.001f, 1)] float alignRotationSpeed = 0.1f;
-        public GravityAttractor attractor;
         Rigidbody rb;
 
         public Rigidbody Rigidbody { get => rb; }
