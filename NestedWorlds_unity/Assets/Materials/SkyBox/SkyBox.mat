@@ -79,10 +79,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - Vector1_2B65A8FF: 7
-    - Vector1_53179: 4.5
+    - Vector1_2B65A8FF: 6
+    - Vector1_53179: 5
     - Vector1_790C8CBA: 0.407
-    - Vector1_88495981: 1
+    - Vector1_88495981: 1.9
     - Vector1_AFE0BCA8: 0.04
     - Vector1_B6E22BC7: 0.19
     - Vector1_B6E22BC7_1: -0.58
@@ -117,14 +117,14 @@ Material:
     m_Colors:
     - Color_32E65213: {r: 0, g: 0.01715264, b: 0.18867922, a: 1}
     - Color_68A17764: {r: 0.25729796, g: 0.6942452, b: 0.9245283, a: 1}
-    - Color_8D3BD2CF: {r: 1, g: 0.9790747, b: 0.3443396, a: 0}
-    - Color_F5CAFD93: {r: 3.9999998, g: 0.80949575, b: 0.056603666, a: 0}
+    - Color_8D3BD2CF: {r: 3.9622645, g: 3.856931, b: 0.3177288, a: 0}
+    - Color_F5CAFD93: {r: 15.999999, g: 3.237983, b: 0.22641467, a: 0}
     - Vector3_96DC2C00: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _sphere_center: {r: -8.11, g: -5.09, b: 1.56, a: 0}
+    - _sphere_center: {r: 0, g: 0, b: 0, a: 0}
     - _sunColor: {r: 1, g: 1, b: 1, a: 0.9019608}
     - _sun_dir: {r: -0.8598069, g: -0.49273664, b: -0.13395098, a: 0}
   m_BuildTextureStacks: []

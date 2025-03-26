@@ -1239,7 +1239,7 @@
     "m_Title": "Scalar projection",
     "m_Position": {
         "x": -515.0,
-        "y": 416.0
+        "y": 416.00006103515627
     }
 }
 
@@ -1372,8 +1372,8 @@
     "m_ObjectId": "971fc5ebd0714b648ef29b6a8011341a",
     "m_Title": "Distance from projected vector to sphere centre",
     "m_Position": {
-        "x": -94.00019073486328,
-        "y": 202.00001525878907
+        "x": -94.0,
+        "y": 202.00006103515626
     }
 }
 
@@ -1895,7 +1895,7 @@
     "m_Title": "SphereCentre in Camera Sapce",
     "m_Position": {
         "x": -1033.0,
-        "y": 179.0
+        "y": 179.00006103515626
     }
 }
 
@@ -1957,8 +1957,8 @@
     "m_ObjectId": "c946b67b181248ccba576e3543aa52e6",
     "m_Title": "Compare with radius",
     "m_Position": {
-        "x": 307.9997863769531,
-        "y": -217.0
+        "x": 308.0,
+        "y": -216.99996948242188
     }
 }
 
