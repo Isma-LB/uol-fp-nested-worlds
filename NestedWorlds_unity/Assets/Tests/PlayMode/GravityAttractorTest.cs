@@ -1,5 +1,5 @@
 using System.Collections;
-using IsmaLB;
+using IsmaLB.SphereGravity;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;

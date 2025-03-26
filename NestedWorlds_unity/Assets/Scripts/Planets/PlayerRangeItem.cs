@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace IsmaLB
+namespace IsmaLB.Planets
 {
     public abstract class PlayerRangeItem : MonoBehaviour
     {

@@ -2,7 +2,7 @@ using System;
 using IsmaLB.Input;
 using UnityEngine;
 
-namespace IsmaLB
+namespace IsmaLB.Player
 {
     [RequireComponent(typeof(SphereCollider))]
     public class PlayerInteraction : MonoBehaviour

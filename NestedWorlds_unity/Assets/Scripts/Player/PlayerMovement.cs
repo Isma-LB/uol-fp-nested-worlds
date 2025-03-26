@@ -5,7 +5,7 @@ using UnityEngine;
 
 using IsmaLB.Input;
 
-namespace IsmaLB
+namespace IsmaLB.Player
 {
     [RequireComponent(typeof(SphereCharacterController))]
     public class PlayerMovement : MonoBehaviour

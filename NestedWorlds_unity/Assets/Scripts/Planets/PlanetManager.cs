@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using IsmaLB.Input;
+using IsmaLB.SphereGravity;
 using UnityEngine.Events;
 
 namespace IsmaLB.Planets
@@ -18,9 +19,6 @@ namespace IsmaLB.Planets
         [SerializeField] AnimationCurve speed = AnimationCurve.EaseInOut(0f, 0.25f, 1.1f, 1f);
         [Header("Broadcast on:")]
         [SerializeField] PlanetEventSO planetChangeEvent;
-
-        public static event PlanetChanged OnPlanetChanged;
-        public delegate void PlanetChanged(int planetIndex, Vector3 position);
 
         enum Direction { forwards, backwards }
         bool transitionInProcess = false;

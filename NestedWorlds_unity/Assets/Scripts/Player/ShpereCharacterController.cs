@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace IsmaLB
+namespace IsmaLB.Player
 {
 
     [RequireComponent(typeof(CapsuleCollider), typeof(Rigidbody))]

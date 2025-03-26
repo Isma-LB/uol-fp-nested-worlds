@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace IsmaLB
+namespace IsmaLB.SphereGravity
 {
     [RequireComponent(typeof(Rigidbody))]
     public class GravityBody : AttractorAligned
