@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2745102486082096958}
-  - component: {fileID: 3331429890314804808}
   - component: {fileID: 4912955950834526764}
   m_Layer: 0
   m_Name: InteractionSystem
@@ -33,27 +32,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7586903834280864270}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &3331429890314804808
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 627017846180261946}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 511
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 2
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4912955950834526764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,6 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputReader: {fileID: 11400000, guid: 2b22ddac83cc37e27a17d6c040b4f307, type: 2}
+  radius: 2
+  intractableLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &1887059184393350400
 GameObject:
   m_ObjectHideFlags: 0

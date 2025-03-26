@@ -4,16 +4,16 @@ using UnityEngine;
 
 namespace IsmaLB.Player
 {
-    [RequireComponent(typeof(SphereCollider))]
     public class PlayerInteraction : MonoBehaviour
     {
         [SerializeField] InputReader inputReader;
-        SphereCollider trigger;
-        IIntractable currentIntractable;
+        [SerializeField, Range(0, 5)] float radius = 2f;
+        [SerializeField] LayerMask intractableLayer;
+        private Collider[] results = new Collider[10];
+        IIntractable currentIntractable, tempIntractable, closestIntractable;
 
         void OnEnable()
         {
-            trigger = GetComponent<SphereCollider>();
             inputReader.interactEvent += OnInteractInput;
         }
         void OnDisable()
@@ -21,32 +21,56 @@ namespace IsmaLB.Player
             inputReader.interactEvent -= OnInteractInput;
         }
 
-        void OnTriggerEnter(Collider other)
+        void Update()
         {
-            if (!other.TryGetComponent<IIntractable>(out IIntractable intractable)) return;
-
-            if (currentIntractable == null)
-            {
-                intractable.Select();
-                currentIntractable = intractable;
-            }
+            FindIntractableItems();
         }
-        void OnTriggerExit(Collider other)
+        void FindIntractableItems()
         {
-            if (!other.TryGetComponent<IIntractable>(out IIntractable intractable)) return;
-
-            if (intractable == currentIntractable)
+            int detectedCount = Physics.OverlapSphereNonAlloc(transform.position, radius, results, intractableLayer);
+            if (detectedCount > 0)
             {
-                intractable.Deselect();
-                currentIntractable = null;
-                // Debug.Log("out range:" + other.name);
+                float minDistance = float.MaxValue;
+                // get the closest
+                for (int i = 0; i < detectedCount; i++)
+                {
+                    if (!results[i].TryGetComponent<IIntractable>(out tempIntractable)) continue;
+                    float dist = Vector3.Distance(transform.position, results[i].transform.position);
+                    if (dist < minDistance)
+                    {
+                        closestIntractable = tempIntractable;
+                        minDistance = dist;
+                    }
+                }
+                if (currentIntractable != closestIntractable)
+                {
+                    DeselectCurrent();
+                    closestIntractable.Select();
+                    currentIntractable = closestIntractable;
+                }
+            }
+            else if (currentIntractable != null)
+            {
+                DeselectCurrent();
             }
         }
 
         private void OnInteractInput()
         {
             currentIntractable?.Interact();
-            // Debug.Log("Interacted with: " + currentIntractable);
+        }
+        void DeselectCurrent()
+        {
+            if ((Component)currentIntractable != null)
+            {
+                currentIntractable.Deselect();
+                currentIntractable = null;
+            }
+        }
+        void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(transform.position, radius);
         }
     }
 }
