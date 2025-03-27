@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace IsmaLB
+namespace IsmaLB.SphereGravity
 {
     public class GravityAttractor : MonoBehaviour
     {

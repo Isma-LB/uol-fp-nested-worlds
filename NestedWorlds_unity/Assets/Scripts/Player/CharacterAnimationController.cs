@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Audio;
 
-namespace IsmaLB
+namespace IsmaLB.Player
 {
     public class CharacterAnimationController : MonoBehaviour
     {

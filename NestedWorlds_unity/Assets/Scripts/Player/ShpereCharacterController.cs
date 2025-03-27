@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace IsmaLB
+namespace IsmaLB.Player
 {
 
     [RequireComponent(typeof(CapsuleCollider), typeof(Rigidbody))]
@@ -8,8 +8,8 @@ namespace IsmaLB
     {
         [SerializeField] float moveSpeed = 5f;
         [SerializeField] float rotationSpeed = 300f;
+        [SerializeField] float lookAroundRotationSpeed = 300f;
         [SerializeField] float jumpSpeed = 12f;
-        [SerializeField]
 
         public bool IsGrounded { get; private set; }
         public float ForwardSpeed { get; private set; }
@@ -39,7 +39,8 @@ namespace IsmaLB
             Vector3 deltaPosition = Time.fixedDeltaTime * ForwardSpeed * GetProjectedForward();
             rb.MovePosition(deltaPosition + rb.position);
             // rotation
-            Quaternion deltaRotation = Quaternion.AngleAxis(rotationAmount * Time.fixedDeltaTime * rotationSpeed, transform.up);
+            float rotSpeed = forwardMovement == 0 ? lookAroundRotationSpeed : rotationSpeed;
+            Quaternion deltaRotation = Quaternion.AngleAxis(rotationAmount * Time.fixedDeltaTime * rotSpeed, transform.up);
             rb.MoveRotation(deltaRotation * rb.rotation);
             // jump
             if (IsGrounded && jump)
