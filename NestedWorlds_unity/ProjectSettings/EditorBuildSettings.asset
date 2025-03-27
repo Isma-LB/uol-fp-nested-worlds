@@ -21,9 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/LavaPlanetScene.unity
     guid: 26e9f02519a1833008cb47266ec18a46
   - enabled: 1
-    path: Assets/Scenes/SceneTemplates/BasePuzzle.unity
-    guid: 6257ca539cf5e98e9a746454b0d6341b
-  - enabled: 1
     path: Assets/Scenes/Puzzles/Test_level_2.unity
     guid: 72111340a35dde3c0886abf522b0aa49
   - enabled: 1
