@@ -1,3 +1,4 @@
+![Nested Words logo](./Files/NestedWords-logo.png)
 # Nested Worlds; a physics based video game
 
 This is the repository for the development of the video game Nested Worlds, it's a physics-based game playable in the browser,
